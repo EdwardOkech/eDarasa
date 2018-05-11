@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+
+{% load i18n %}
+{% load staticfiles %}
+
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> <!--<![endif]-->
+
+
+    <head>  
+        <!-- Basic -->
+        <meta charset="utf-8">
+        <title>Workstry | Job Training & Recruitment Platform</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">       
+        <meta name="author" content="Workstry LTD.">
+        <meta name="keywords" content="Workstry, job search, job training">
+        <meta name="description" content="A Job Training & Recruitment Platform">       
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'home_theme/css/bootstrap.css' %}">
+        <link href="{% static 'home_theme/css/font-awesome.min.css' %}" rel="stylesheet"> 
+        <link href="{% static 'home_theme/css/flexslider.css' %}" rel="stylesheet">
+        <link href="{% static 'home_theme/css/prettyPhoto.css' %}" rel="stylesheet">
+        <link href="{% static 'home_theme/css/owl.carousel.css' %}" rel="stylesheet">
+        <link href="{% static 'home_theme/css/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'home_theme/css/style.css' %}" rel="stylesheet"> 
+    
+        <link href="{% static 'home_theme/css/responsive.css' %}" rel="stylesheet">                               
+        <!-- Standard favicons -->  
+        <link rel="shortcut icon" href="{% static 'home_theme/img/icons/favicon.ico' %}">
+        <!-- Google Fonts -->   
+        <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        
+        
+        <style type="text/css">
+	    .alert-box {
+		    color:#555;
+		    border-radius:10px;
+		    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
+		    padding:10px 36px;
+		    margin:10px;
+	    }
+	    .alert-box span {
+		    font-weight:bold;
+		    text-transform:uppercase;
+	    }
+	    .error {
+		    background:#ffecec url('../../images/error.png') no-repeat 10px 50%;
+		    border:1px solid #f5aca6;
+	    }
+	    .success {
+		    background:#e9ffd9 url('../../images/success.png') no-repeat 10px 50%;
+		    border:1px solid #a6ca8a;
+	    }
+	    .warning {
+		    background:#fff8c4 url('../../images/warning.png') no-repeat 10px 50%;
+		    border:1px solid #f2c779;
+	    }
+	    .notice {
+		    background:#e3f7fc url('../../images/notice.png') no-repeat 10px 50%;
+		    border:1px solid #8ed9f6;
+	    }
+        </style>
+        
+    </head> 
+    <body>
+    
+
+        <!-- PRELOADER
+        ============================================= -->       
+        <div class="animationload">
+            <noscript>
+        <style type="text/css">
+        .pagecontainer {display:none;}
+        .noscriptmsg{color:#F00;font-weight:bold;font-family:Book Antiqua;}
+    </style>
+    <div class="noscriptmsg"><center>
+    JAVASCRIPT DISABLED/UNSUPPORTED<br> The browser detected that javascript has been disabled or is unsupported and may result in unexpected behavior.
+    </center>
+    </div>
+    </noscript>
+            <div class="loader"></div>
+        </div>
+        
+    
+    
+        <!-- HEADER
+        ============================================= -->
+        <header id="header">        
+            <div class="navbar navbar-fixed-top">   
+                <div class="container">
+                
+                    
+                    <!-- Navigation Bar -->
+                    <div class="navbar-header">
+                    
+                        <!-- Responsive Menu Button -->
+                        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-menu">
+                            <span class="sr-only">Toggle navigation</span> 
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        
+                        <!-- Logo Image -->
+                        <a class="navbar-brand" href="{% url 'home:homepage' %}"><img src="{% static 'home_theme/img/logo.png' %}" alt="logo" role="banner"></a>
+                        
+                    </div>  <!-- End Navigation Bar -->
+                    
+                    
+                    <!-- Navigation Menu -->
+                    <nav id="navigation-menu" class="collapse navbar-collapse" role="navigation">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a id="GoToContacts" href="#call-to-action" style="color:#e1356f;">How Workstry Works</a></li>
+                            <li><a id="GoToContacts" href="#contacts" style="color:#e1356f;">Ask a question</a></li>
+                            <li><a id="GoToContacts" href="{% url 'login' %}" style="color:#e1356f;">Login</a></li>
+                        </ul>
+                    </nav> 
+                        <!--<ul class="nav navbar-nav navbar-right">
+                            <li><a id="GoToContacts" href="#contacts"  style="color:#e1356f;">Ask a question</a></li>
+                        </ul>-->
+                    <!-- End Navigation Menu -->
+                    
+                    
+                </div>    <!-- End container -->
+            </div>     <!-- End navbar fixed top  -->       
+        </header>   <!-- END HEADER -->
+        
+                
+        <!-- CONTENT WRAPPER
+        ============================================= -->   
+        <div id="content_wrapper">  
+    
+    
+            <!-- INTRO
+            ============================================= -->
+            <section id="intro" style="background:url({% static 'home_theme/img/thumbs/intro_bkg.jpg' %});background-position:center;">
+
+                    <div class="container">     
+                        <div id="intro_content" class="row">
+                        
+                        
+                            <!-- INTRO TEXT -->
+                            <div class="col-md-7 intro_text row-">
+                            
+                                <h3 style="color:#fff;text-transform:none;"><strong>Building Real Workplace Skills</strong><br></h3>
+                                    
+                                <!-- INTRO LIST -->
+                                <ul class="intro_list">
+                            
+                                    <!-- Intro_List_Item_1 -->
+                                    <li>                                        
+                                        <div class="intro-list-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                        </div>
+                                                            
+                                        <div class="intro-list-content">
+                                             <p>Career Path Planning</p>
+                                        </div>
+                                    </li>
+                                    
+                                    <!-- Intro_List_Item_2 -->
+                                    <li>    
+                                        <div class="intro-list-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                         </div>
+                                                 
+                                        <div class="intro-list-content">
+                                            <p>Thinking skills</p>
+                                        </div>
+                                    </li>
+                                    <!-- Intro_List_Item_3 -->
+                                    <li>    
+                                        <div class="intro-list-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                         </div>
+                                                 
+                                        <div class="intro-list-content">
+                                            <p>Problem-Solving Skills</p>
+                                        </div>
+                                    </li>
+                                    <!-- Intro_List_Item_4 -->
+                                    <li>    
+                                        <div class="intro-list-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                         </div>
+                                                 
+                                        <div class="intro-list-content">
+                                            <p>Polished Grammar & Writing</p>
+                                        </div>
+                                    </li>
+                                    <!-- Intro_List_Item_5 -->
+                                    <li>    
+                                        <div class="intro-list-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                         </div>
+                                                 
+                                        <div class="intro-list-content">
+                                            <p>Mastery in Powerpoint & Presentation</p>
+                                        </div>
+                                    </li>
+                                    <!-- Intro_List_Item_6 -->
+                                    <li>    
+                                        <div class="intro-list-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                         </div>
+                                                 
+                                        <div class="intro-list-content">
+                                            <p>Ability to apply Technical Skills</p>
+                                        </div>
+                                    </li>
+                                    <!-- Intro_List_Item_7 -->
+                                    <li>    
+                                        <div class="intro-list-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                         </div>
+                                                 
+                                        <div class="intro-list-content">
+                                            <p> Soft Skills for the Workplace</p>
+                                        </div>
+                                    </li>
+                                </ul>   <!-- END INTRO LIST -->
+                                
+                            </div>  <!-- END TEXT -->
+                            
+                                                            
+                        </div>   <!-- End Intro Content --> 
+                    </div>    <!-- End container -->
+
+            </section>  <!-- END INTRO -->
+            
+            
+            
+            <!-- ABOUT
+            ============================================= -->   
+            <section id="about">
+                <div class="container">
+                
+                
+                    <!-- SECTION TITLE -->      
+                    <div class="row">
+                        <div class="col-sm-12 titlebar">
+                        
+                            <h3>Wondering Where to Start your Job Search?</h3>
+                                                    
+                        </div>
+                    </div>  <!-- END SECTION TITLE -->  
+                    
+                    
+                    <!-- SECTION CONTENT -->
+                    <div class="row">
+                                                                
+                        <!-- TABS -->
+                        <div id="tabs-holder" class="col-md-6"> 
+                        
+                        
+                            <!-- TABS NAV -->
+                            <!--<ul class="nav nav-tabs" role="tablist">
+                                <li class="active"><a href="#" role="tab" data-toggle="tab">Wondering Where to Start your Job Search?</a></li>
+                            </ul> -->
+                                
+
+                            <!-- TABS HOLDER -->
+                            <div class="tab-content">
+                            
+                                    
+                                <!-- TAB #1 -->
+                                <div id="tab_1" class="tab-pane active">
+                                                                    
+                                    <!-- Tab #1 Description -->
+                                    <p>Your Job Search does not need to be a long, frustrating and confusing experience.
+                                    </p>
+                                    
+                                    <p>Workstry's saves you time, money and emotional distress. Transform yourself into a high-demand candidate by taking our online job search and job skills training and building the real workolace skills employers want. Successfully complete the 25-50 hrs training, and get a job/ internship through our Recruitment system.
+                                    </p>
+                                        <p>Start your Job Search Right today by registering**</p>
+                                    
+<p style="font-size:10px;">**We charge registration fee of Kes 1000/- that is refundable under certain circumstances. See our frequently asked questions for details.</p>                                   
+                                </div>  <!-- END TAB #1 -->
+                            </div>  <!-- END TABS HOLDER -->
+            <!-- FAQs ============================================= --> 
+                              <div class="additional-style-pos"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Frequently Asked Questions</button></div>
+
+                              <!-- Modal -->
+                              <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                     <!-- SECTION TITLE -->     
+                                        <div class="row">
+                                            <div class="col-sm-12 titlebar">
+                                            
+                                                <h3>Frequently asked questions</h3>
+                                                
+                                                <p>For jobseekers.</p>
+                                                
+                                            </div>
+                                        </div>  
+                                    </div>
+                    <div class="modal-body">
+            <section id="faq">
+                                        
+                    <div class="row">
+                        
+                        <!-- Question #1 -->
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="300">                       
+                            <h4><span class="faq-question-label">Q:</span> How does Workstry work?</h4>
+                            <p><span class="faq-answer-label">A:</span>Workstry is an online training and recruitment program. Jobseekers interested in gaining job search and job skills register and pay a small fee to undergo our proprietary training on our site www.workstry.com. After successfully completing the training and passsing a face-to-face interview with workstry interviewers, these trainees are listed on our searchable database and also presented via email to our network of employers. They receive interview invitations from employers more often and more easily than non-trainees and are also more likely to pass their interviews and secure jobs/internships quicker.</p>
+                        </div>
+                        
+                        <!-- Question #2 -->
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="300">                       
+                            <h4><span class="faq-question-label">Q:</span> What kind of training do you offer?</h4>
+                            <p><span class="faq-answer-label">A:</span>Workstry’s job-seekers’ training comprises of five training areas and within each of these several modules:</p>
+                            <ol>
+                            <li>understanding the job search process</li>
+                            <li>basic skills for the job search</li>
+                            <li>thinking skills to impress employers</li>
+                            <li>skills in applying training</li>
+                            <li>and specialized courses in several high demand fields</li>
+                            </ol>
+                        </div>                      
+                    </div>                  
+                        
+                    <div class="row">
+                        
+                        <!-- Question #3 -->
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="600">                       
+                            <h4><span class="faq-question-label">Q:</span> Am I eligible for Workstry training?</h4>
+                            <p><span class="faq-answer-label">A:</span>All job-seekers can benefit from taking our training and improving their job search and job related skills. However, Workstry’s training is specifically built for people who feel that their need guidance in navigating the job search process.</p>
+                        </div>
+                            
+                        <!-- Question #4 -->    
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="600">                       
+                            <h4><span class="faq-question-label">Q:</span> Is your training just written materials that I read?</h4>
+                            <p><span class="faq-answer-label">A:</span> Our training is highly interactive and includes reading materials as well as in-lesson exercises. In a short while, we will also launch discussion forums to enable interact among trainees as well as with jobsmentor trainers; games and an interactive interview engine.</p>
+                        </div>
+                        
+                    </div>                      
+                        
+                    <div class="row">
+                        <!-- Question #5 -->    
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="900">                       
+                            <h4><span class="faq-question-label">Q:</span> I already have a degree/diploma/certificate, why do I need your training?</h4>
+                            <p><span class="faq-answer-label">A:</span>While your degree/diploma/certificate has given you academic understanding of your chosen field, it unfortunately has not prepared you for the rigors of job seeking. If a recent graduate, you are likely not to understand how employers hire; what you should and should not do; what opportunities exist for you etc. Workstry builds up all the other skills you need to transform your academic training into value for an employer and a job for yourself</p>
+                        </div>
+
+                        <!-- Question #6 -->
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="900">                       
+                            <h4><span class="faq-question-label">Q:</span> How long does the training take?</h4>
+                            <p><span class="faq-answer-label">A:</span> Workstry training should take at minimum 25 hours of study. It is likely to last longer. There is much to learn and rushing through the training does not necessarily mean getting hired faster. Your success in securing and passing interviews will depend to a large extent on how well you internalize the training. We advise, therefore, that you commit at least 50 hours of study and practice.</p>
+                        </div>                          
+                        
+                    </div>
+                        <div class="row">
+                        
+                        <!-- Question #7 -->
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="600">                       
+                            <h4><span class="faq-question-label">Q:</span> How much do I have to pay to join Workstry?</h4>
+                            <p><span class="faq-answer-label">A:</span>Workstry charges a registration fee of Kes 1000. This fee is, however, refundable, minus MPESA fees, under the following conditions: 1) successful completion of the training and 2) failure to secure either a placement (job or internship) or five interview invitations with reputable employers through Workstry, in the three months after you successfully complete training and pass your face-to-face interview with a workstry interviewer.</p>
+                        </div>
+                            
+                        <!-- Question #8 -->    
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="600">                       
+                            <h4><span class="faq-question-label">Q:</span> If I pay this registration fee do you give a guarantee I will get a job through your site?</h4>
+                            <p><span class="faq-answer-label">A:</span> Workstry does not give job guarantees. We improve and increase your chances of securing jobs/internships faster by providing you with comprehensive training and thereafter, opportunities to present yourself to employers. Your success in interviews solely depends on how well you utilize the training and is not under the control of Workstry.</p>
+                        </div>                      
+                    </div>              
+                        
+                    <div class="row">
+                        
+                        <!-- Question #9 -->
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="900">                       
+                            <h4><span class="faq-question-label">Q:</span> How do I make my registration fee payment?</h4>
+                            <p><span class="faq-answer-label">A:</span> The registration fee is payable through our MPESA paybill number. Instructions will be available once our platform launches on 21st January 2016. </p>
+                        </div>
+                            
+                        <!-- Question #10 -->   
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="900">                       
+                            <h4><span class="faq-question-label">Q:</span> Does this registration fee cover everything?</h4>
+                            <p><span class="faq-answer-label">A:</span>This registration fee will allow you to undertake our entire job search training. The training, however, excludes our premium services offered at an extra pay per use fee.</p>
+                        </div>
+                        
+                    </div>
+                                        <div class="row">
+                        <!-- Question #11 -->   
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="900">                       
+                            <h4><span class="faq-question-label">Q:</span> What other services do you offer and how much do they cost?</h4>
+                            <p><span class="faq-answer-label">A:</span>Among other services, we are soon to launch a premium service that will allow you to take mock interviews with professionals in your field and thus gain experience in interviewing prior to undertaking real interviews. This service will come at a cost separate from our registration fee.</p>
+                        </div>
+
+                        <!-- Question #12 -->
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="900">                       
+                            <h4><span class="faq-question-label">Q:</span> Which employers recruit from Workstry?</h4>
+                            <p><span class="faq-answer-label">A:</span> Currently we work with three market research companies, a digital marketing agency, an ICT skills training company, a green energy vendor, a software development agency  and various companies interested in hiring for sales and business development. In coming months, we will add more employers to our list.</p>
+                        </div>                          
+                        
+                    </div>
+                        <div class="row">
+                        
+                        <!-- Question 13 -->
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="600">                       
+                            <h4><span class="faq-question-label">Q:</span> How much will the job I get through Workstry pay me?</h4>
+                            <p><span class="faq-answer-label">A:</span> Workstry will NOT, at any point, be involved in salary negotiations between you and your future employer. We do not determine wages or advise employers on what to pay. Your pay from a job secured through Workstry will depend on your future employer’s considerations as well as your ability to negotiate a good package using the skills we provide you in training.</p>
+                        </div>
+                            
+                        <!-- Question #14 -->   
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="600">                       
+                            <h4><span class="faq-question-label">Q:</span> Do you have any testimonials from people who have actually secured jobs through you?</h4>
+                            <p><span class="faq-answer-label">A:</span> These are on display on our homepage.</p>
+                        </div>                      
+                    </div>              
+                        
+                    <div class="row">
+                        
+                        <!-- Question #15 -->
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="900">                       
+                            <h4><span class="faq-question-label">Q:</span> By the way, are you Workstry or are you Jobsmentor?</h4>
+                            <p><span class="faq-answer-label">A:</span> Apologies about the confusion. Jobsmentor is the register company that owns the online platform Workstry. We have recently changed our operating name from Jobsmentor to Workstry.</p>
+                        </div>
+                            
+                        <!-- Question #16 -->   
+                        <div class="col-md-6 question animated" data-animation="fadeInUp" data-animation-delay="900">                       
+                            <h4><span class="faq-question-label">Q:</span> I have a question that is not covered here. How can I contact you?</h4>
+                            <p><span class="faq-answer-label">A:</span> Kindly click on “contact us” on the top menu bar. A form will appear in which you can fill in your details and type in a question. Afterwards click “submit” and we will contact you as soon as possible.</p>
+                        </div>
+                        
+                    </div>
+                    </section>   <!-- END FAQs -->
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </div>    
+
+                        </div>  <!-- END TABS -->
+                        
+                        <!-- NEW TO WORKSTRY --> 
+                        <div id="about_image" class="col-md-6 text-center">                                             
+                                        
+                            <!-- SIGNUP FORM -->    
+                            <div id="intro_form" class="form_register text-center">
+                                                                                                                              
+                                <!-- Register Form -->  
+                                <form action="{% url 'home:homepage' %}" name="contactform" class="row" method="post" onsubmit="ThanksNShare()">
+                                    {% csrf_token %}
+                                        
+                                    <h4>Sign up </h4>
+                                    
+                                    
+                                    
+                                    
+                                    {% if register_form.errors %}
+                                    <div class="alert-box error">
+                                        <ul>
+                                        {% for field in register_form %}
+                                            {% for error in field.errors %}
+                                                <li><span>error: </span>{{ error|escape }}</li>
+                                            {% endfor %}
+                                        {% endfor %}
+                                        {% for error in register_form.non_field_errors %}
+                                            <li><span>error: </span>{{ error|escape }}</li>
+                                        {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                    
+                                    
+                                    
+                                    
+                                                
+                                    <div id="input_name" class="col-md-12">
+                                        <input id="id_register-full_names" class="form-control" type="text" name="register-full_names" placeholder="Full Name" value="{% if register_form.full_names.value %}{{ register_form.full_names.value }}{% endif %}"> 
+                                    </div>
+                                          
+                                    <div id="input_phone" class="col-md-12">
+                                        <input id="id_register-phone_number" class="form-control" type="text" name="register-phone_number" placeholder="Phone Number" value="{% if register_form.phone_number.value %}{{ register_form.phone_number.value }}{% endif %}"> 
+                                    </div>  
+                                    
+                                    <div id="input_name" class="col-md-12">
+                                        <select name="register-education_level" id="id_register-education_level" class="form-control" type="text" >
+                                            <option disabled selected="selected">Current Education level</option>
+                                            <option value="1">Just completed secondary school</option>
+                                            <option value="2">Waiting to join university/college</option>
+                                            <option value="3">Undertaking a certificate/diploma</option>
+                                            <option value="4">Degree first year </option>
+                                            <option value="5">Degree second year</option>
+                                            <option value="6">Degree third year</option>
+                                            <option value="7">Degree fourth year</option>
+                                            <option value="8">Degree fifth + year</option>
+                                            <option value="9">Graduate with certificate/diploma/degree</option>
+                                            <option value="10">Currently undertaking a masters</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div id="input_name" class="col-md-12">
+                                        <select name="register-job_status" id="id_register-job_status" class="form-control" type="text" >
+                                            <option disabled selected="selected">Current job status</option>
+                                            <option value="1">Currently unemployed and looking for an internship</option>
+                                            <option value="2">Currently unemployed and looking for a job</option>
+                                            <option value="3">Currently on my (1st, 2nd, 3rd) internship</option>
+                                            <option value="4">Currently working a temporary/contract job</option>
+                                            <option value="5">Currently working a permanent job with less than 2 years experience</option>
+                                            <option value="6">Currently working a permanent job with 2 + years of experience</option>
+                                        </select>
+                                    </div>  
+                                                       
+                                    <!--
+                                    <div id="input_email" class="col-md-12">
+                                        <input id="current_campus" class="form-control" type="text" name="current_campus" placeholder="Last or Current College/ University"> 
+                                    </div> 
+                                    -->    
+                                                                                     
+                                    <div id="input_username" class="col-md-12">
+                                        <input id="id_register-username" class="form-control" type="text" name="register-username" placeholder="Username" value="{% if register_form.username.value %}{{ register_form.username.value }}{% endif %}"> 
+                                    </div>
+                                    
+                                    <div id="input_email" class="col-md-12">
+                                        <input id="id_register-email" class="form-control" type="text" name="register-email" placeholder="Enter your email" value="{% if register_form.email.value %}{{ register_form.email.value }}{% endif %}"> 
+                                    </div>
+                                    
+                                    <div id="input_email" class="col-md-12">
+                                        <input id="id_register-email2" class="form-control" type="text" name="register-email2" placeholder="Confirm your email" value="{% if register_form.email2.value %}{{ register_form.email2.value }}{% endif %}"> 
+                                    </div>
+                                    
+                                    <div id="input_phone" class="col-md-12">
+                                        <input id="id_register-password" class="form-control" type="password" name="register-password" placeholder="Password"> 
+                                    </div>  
+                                    
+                                    <div id="input_phone" class="col-md-12">
+                                        <input id="id_register-password2" class="form-control" type="password" name="register-password2" placeholder="Confirm password"> 
+                                    </div> 
+                                    
+                                    <div><p style="font-size:10px;">By clicking submit, your are agreeing to abide by <a href="terms_and_conditions.html">Workstry Terms and Conditions</a>.</p></div>
+                                    
+                                    <!-- Submit Button -->
+                                    <div id="form_register_btn" class="text-center">
+                                      <input class="btn" type="submit" value="Submit" id="register" name="register">                  
+                                    </div>  
+                                                                                                        
+                                </form> <!-- End Register Form -->  
+                                        
+                            </div>    <!-- END INTRO REGISTER FORM -->  
+                        <!-- Modal -->
+                              <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog modal-sm">
+                                
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Share Workstry</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Thank you for pre-registering for the Workstry Job Preparation and Training Program. Share the program with your friends</p>
+                                                                          <!-- Share Buttons -->
+                                    <div id="share-buttons">
+                                    
+                                                                            <!-- Facebook -->
+                                        <a href="//www.facebook.com/sharer.php?u=http://workstry.com" target="_blank">
+                                            <img src="//simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+                                        </a>
+                                                                                <!-- Twitter --
+                                        <a href="//twitter.com/share?url=http://workstry.com/&amp;text=Workstry&amp;hashtags=BuildingRealWorkplaceSkills" target="_blank">
+                                            <img src="//simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+                                        </a>
+                                                                                <!-- Google+ --
+                                        <a href="//plus.google.com/share?url=http://workstry.com" target="_blank">
+                                            <img src="//simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+                                        </a>
+                                                                                <!-- LinkedIn --
+                                        <a href="//www.linkedin.com/shareArticle?mini=true&amp;url=http://workstry.com" target="_blank">
+                                            <img src="//simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+                                        </a>
+                                                                                <!-- Email --
+                                        <a href="mailto:?Subject=Building Real Workplace Skills:visit www.workstry.com&amp;Body=Hello,%20%20I%20saw%20this%20and%20thought%20it%20might%20be%20important%20to%20you!%20 http://workstry.com">
+                                            <img src="//simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+                                        </a>
+                                                                                <!-- Tumblr--
+                                        <a href="//www.tumblr.com/share/link?url=http://workstry.com&amp;title=Building Real Workplace Skills:workstry.com" target="_blank">
+                                            <img src="//simplesharebuttons.com/images/somacro/tumblr.png" alt="Tumblr" />
+                                        </a>
+                                                                                <!-- Print -->
+                                        <a href="javascript:;" onclick="window.print()">
+                                            <img src="//simplesharebuttons.com/images/somacro/print.png" alt="Print" />
+                                        </a>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>                            
+                        </div>
+
+                    
+                    </div>    <!-- END SECTION CONTENT -->
+                    
+                    
+                </div>    <!-- End container -->    
+            </section>  <!-- END ABOUT -->
+        <!-- START OF HOW WORKSTRY WORKS INTRO
+        ========================================================= -->
+
+        <section style="background-position: 50% 49px;" id="call-to-action" class="parallax">
+				<div class="container">
+					<div class="row">
+                        <div class="col-sm-12 titlebar">
+                            <h3 style="color:#fff;">How Workstry Works </h3>
+                        </div>
+
+						<!-- Call To Action Content -->
+						<div class="col-sm-12 text-center">
+
+
+							<p>Your Job Search does not need to be a long, frustrating and confusing experience click to view how the process works
+							</p>
+
+							<!-- Call To Action Button -->
+							<a href="{% url 'howitworks' %}" class="btn btn-primary btn-lg">How Workstry Works</a>
+
+						</div>	<!-- End Call To Action Content -->
+
+					</div>	<!-- End row -->
+				</div>	   <!-- End container -->
+			</section>
+
+        <!-- ========================================================
+        END OF HOW WORKSTRY WORKS INTRO -->
+            
+            
+
+            <!-- TESTIMONIALS ROTATOR
+            ============================================= -->
+            <div id="testimonials_rotator">
+                <div class="container text-center">
+                
+            
+                    <!-- SECTION TITLE -->      
+                    <div class="row">
+                        <div class="col-sm-12 titlebar">
+                            <h3 style="color:#fff;">Testimonials </h3>  
+                        </div>
+                    </div>  
+            
+                    
+                    <div class="row">                   
+                        <div class="col-md-12">
+
+<!-- Modal -->
+<div id="testimonial_1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body" style="color:#000;">
+        <p>...When I received an invitation for an interview with an organization of my dreams...my new thought organization made my interview quite simple. I feel I really communicated with that employer and showed him all I could do in a way I had not been able to do before [the training]. I even got an offer, but I felt I needed to pursue not just any job but the one I had uncovered [as my best fit] through training. [Jobsmentor] ensured I got that interview even before the end of training. I was able to secure an internship and then a job at Sagaci Research.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="testimonial_2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body" style="color:#000;">
+        <p>...Also, I learnt about what employers are look for in interviews and how to prepare for and tackle hard questions. The hardest blow to my confidence were the grammar lessons. I thought I understood English and I really did not.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="testimonial_3" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body" style="color:#000;">
+        <p>...So after several months, I decided to try Jobsmentor . In the past I thought used CVs and job announcements as my primary job search method.Now I know better. Networking is a deal changer. But the biggest discovery for me during this time was that I actually did not want to pursue a career in telecommunications engineering. Using the self-discovery skills I learnt, I was able to finally understand that my strengths and interests were in IT systems. The training helped me secure a good internship and a full time job at the same company there after.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="testimonial_4" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body" style="color:#000;">
+        <p>...I was looking for a job for 6 months without success.Then I met Jobsmentor’s Founder, Ms. Makena Ringera, at a career fair and she confirmed my fears: “Internet applications are the least effective means of getting a job in Kenya.” A week after finishing the basic course, even before I had completed my final course work, I got a call for an interview. Afterwards, my interviewers said they would contact me in two weeks with results, but got back to me in two days. On the third day I had the job. I have realized I need constant mentorship for my career growth</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="testimonial_5" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body" style="color:#000;">
+        <p>...I was looking for a job for 6 months without success.Then I met Jobsmentor’s Founder, Ms. Makena Ringera, at a career fair and she confirmed my fears: “Internet applications are the least effective means of getting a job in Kenya.” A week after finishing the basic course, even before I had completed my final course work, I got a call for an interview. Afterwards, my interviewers said they would contact me in two weeks with results, but got back to me in two days. On the third day I had the job. I have realized I need constant mentorship for my career growth.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+                                        
+                            <!-- ROTATOR CONTENT -->
+                            <div class="flexslider">                                            
+                                <ul class="slides">
+                                                                    
+                                    <!-- TESTIMONIAL #1 -->
+                                    <li>
+                                        <div class="testimonials">
+                                                            
+                                            <!--Testimonial Message -->
+                                            <div class="client-msg">                                    
+                                                <p>&laquo; I never expected jobsmentor training to be as intensive as it was. I quickly became an observer and a deep thinker...." &raquo;                                                 
+
+                                                </p>
+                                                    
+                                            </div>
+                                                            <table class="table ">
+<tr>
+<td></td>
+<td style="width:90px;height:90px"><img style="float: left;margin: 0px 15px 15px 0px;border: 1px solid #000;-moz-border-radius: 100%;-webkit-border-radius: 100%;border-radius: 100%;" height="120px" width="90px" src="{% static 'home_theme/img/testimonials/[890].jpg' %}">
+
+</td>
+                                                                                        
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><!-- Trigger the modal with a button -->
+                                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#testimonial_1">Read more</button></td>
+<td></td>
+         </tr>       </table>
+
+                                            <!-- Message Author -->
+                                            <p class="author">RODGERS O.&nbsp; <span>Market Research & Intelligence</span></p></br>
+                                            Educational Qualifications: Economics (completing a Masters degree in December)</br>
+                                            Training Undertaken: In-class training under Jobsmentor</br>
+                                            Placement: Internship and full time job at Sagaci Research
+                                            
+                                                    
+                                        </div>
+                                    </li>    <!-- END TESTIMONIAL #1 -->
+                                    
+                                                                                                                    
+                                    <!-- TESTIMONIAL #2 --> 
+                                    <li>
+                                        <div class="testimonials">
+                                                        
+                                            <!--Testimonial Message -->
+                                            <div class="client-msg">                                                    
+                                                <p>&laquo; I expected the training to be about how to write good CVs and cover letters but I ended up learning that getting a job takes more than that... &raquo;
+                                                </p>
+                                                                                                        
+                                            </div>
+                                                                                                        <table class="table ">
+<tr>
+<td></td>
+<td style="width:90px;height:90px"><img style="float: left;margin: 0px 15px 15px 0px;border: 1px solid #000;-moz-border-radius: 100%;-webkit-border-radius: 100%;border-radius: 100%;" height="120px" width="90px" src="{% static 'home_theme/img/testimonials/[8909654].jpg' %}">
+
+</td>
+                                                                                        
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><!-- Trigger the modal with a button -->
+                                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#testimonial_2">Read more</button></td>
+<td></td>
+         </tr>       </table>
+                                            <!-- Message Author -->
+                                            <p class="author">Erastus L. <span>Accounting</p></br>
+                                            Educational Qualifications: B. Ed in Accounting & Economics; CPA 1-3</br>
+                                            Training Undertaken: In-class training under Jobsmentor</br>
+                                            Placement: Internship at Blue Webs Africa
+                                                    
+                                        </div>
+                                    </li>    <!-- END TESTIMONIAL #2 -->
+                                    
+                                                                                                                    
+                                    <!-- TESTIMONIAL #3 -->
+                                    <li>
+                                        <div class="testimonials">
+                                                        
+                                            <!--Testimonial Message -->
+                                            <div class="client-msg">    
+                                                <p>&laquo; Despite very good grades and three internships at big companies under my belt (including a major telco) I still had a hard time securing a job after campus...&raquo;
+                                                </p>                                                    
+                                            </div>
+                                                                                                        <table class="table ">
+<tr>
+<td></td>
+<td style="width:90px;height:90px"><img style="float: left;margin: 0px 15px 15px 0px;border: 1px solid #000;-moz-border-radius: 100%;-webkit-border-radius: 100%;border-radius: 100%;" height="120px" width="90px" src="{% static 'home_theme/img/testimonials/[8909653].jpg' %}">
+
+</td>
+                                                                                        
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><!-- Trigger the modal with a button -->
+                                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#testimonial_3">Read more</button></td>
+<td></td>
+         </tr>       </table>
+                                            <!-- Message Author -->
+                                            <p class="author">ALEX N. <span>IT Systems</p></br>
+                                            Educational Qualifications: Bachelors in Telecommunications</br>
+                                            Training Undertaken: One-on-one mentoring under Jobsmentor</br>
+                                            Placement: Internship & full time job at a IT Consultancy Firm
+                                                                                            
+                                        </div>
+                                    </li>    <!-- END TESTIMONIAL #3 -->
+                                    
+                                                                                                                    
+                                    <!-- TESTIMONIAL #4 -->
+                                    <li>
+                                        <div class="testimonials">
+                                                        
+                                            <!--Testimonial Message -->
+                                            <div class="client-msg">                                                    
+                                                <p>&laquo; Although I had previously had jobs, after I went back to university for my degree, the unemployment sting hit me hard...&raquo; 
+                                                </p>                                                    
+                                            </div>
+                                                                                                        <table class="table ">
+<tr>
+<td></td>
+<td style="width:90px;height:90px"><img style="float: left;margin: 0px 15px 15px 0px;border: 1px solid #000;-moz-border-radius: 100%;-webkit-border-radius: 100%;border-radius: 100%;" height="120px" width="90px" src="{% static 'home_theme/img/testimonials/[8909655].JPG' %}">
+
+</td>
+                                                                                        
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><!-- Trigger the modal with a button -->
+                                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#testimonial_4">Read more</button></td>
+<td></td>
+         </tr>       </table>
+                                            <!-- Message Author -->
+                                            <p class="author">ESTHER W. <span> Media Development</p></br>
+                                            Educational Qualifications: currently pursuing a BA degree</br>
+                                            Training undertaken: in-class training under Jobsmentor</br>
+                                            Placement: Full time job at a Real estate company
+                                                
+                                            </div>
+                                    </li>    <!-- END TESTIMONIAL #4 -->
+                                    
+                                    <!-- TESTIMONIAL #5 -->
+                                    <li>
+                                        <div class="testimonials">
+                                                        
+                                            <!--Testimonial Message -->
+                                            <div class="client-msg">                                                    
+                                                <p>&laquo; Although I had previously had jobs, after I went back to university for my degree, the unemployment sting hit me hard...&raquo; 
+                                                </p>                                                    
+                                            </div>
+                                                            <table class="table ">
+<tr>
+<td></td>
+<td style="width:90px;height:90px"><img style="float: left;margin: 0px 15px 15px 0px;border: 1px solid #000;-moz-border-radius: 100%;-webkit-border-radius: 100%;border-radius: 100%;" height="120px" width="90px" src="{% static 'home_theme/img/testimonials/[8909652].jpg' %}">
+
+</td>
+                                                                                        
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><!-- Trigger the modal with a button -->
+                                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#testimonial_5">Read more</button></td>
+<td></td>
+         </tr>       </table>
+                                            <!-- Message Author -->
+                                            <p class="author">AGNES M. <span> Logistics and Inventory Management</p>
+                                            </br>
+                                            Educational Qualifications: Diploma in Purchasing and Management Supplies; Bachelor in Commerce, Purchasing and Business Logistics</br>
+                                            Training Undertaken: one-on-one mentoring under Jobsmentor</br>
+                                            Placement: Full time job at a Communications firm
+                                                
+                                            </div>
+                                    </li>    <!-- END TESTIMONIAL #5 -->
+
+                                    
+                                </ul>                                               
+                            </div>   <!-- END ROTATOR CONTENT -->
+                                    
+                                            
+                        </div>  <!-- End col-sm-12 -->                          
+                    </div>  <!-- End row -->    
+
+                    
+                </div>   <!-- End container -->
+            </div>     <!-- END TESTIMONIALS ROTATOR -->    
+
+            
+            
+            
+            <!-- CONTACTS
+            ============================================= -->               
+            <section id="contacts">
+                <div class="container">
+                        
+                                    
+                    <!-- SECTION TITLE -->  
+                    <div class="row">
+                        <div class="col-sm-12 titlebar">                                    
+                            <h3><span>Ask a</span> question</h3>                                    
+                        </div>  
+                    </div>
+                    
+
+                    <!-- CONTACT FORM -->
+                     <div class="row">
+                    
+                        <div class="col-md-12">
+                            {% if errors %}
+                               <ul>
+                                   {% if form.errors %}
+                                       <p style="color: red;">
+                                        Please correct the errors{{ form.errors|pluralize }} below.
+                                       </p>
+
+                                   {% endif %}
+                               </ul>
+                            {% endif %}
+                            
+                            <form id="contact-form" action="/" name="contactform" class="row" method="post">{% csrf_token %}
+                                
+                                <div id="input_name" class="col-md-6">
+                                    <input type="text" name="full_name" id="name" class="form-control" placeholder="Name" value="{{ names }}">
+                                </div>
+                                    
+                                <div id="input_email" class="col-md-6">
+                                    <input type="text" name="email" id="email" class="form-control triggerAnimation animated" data-animate="bounceIn" placeholder="Email" value="{{ email }}">
+                                </div>
+                                
+                                <div id="input_phone" class="col-md-6">
+                                    <input type="text" name="phone" id="phone" class="form-control triggerAnimation animated" data-animate="bounceIn" placeholder="Phone Number" value="{{ phone }}">
+                                </div>                              
+                                <div id="input_message" class="col-md-12">
+                                    <textarea class="form-control triggerAnimation animated" data-animate="bounceIn" name="message" id="comments" rows="6" placeholder="Your Message ..." value="{{ comments }}"></textarea>
+                                </div>   
+                                    
+                                <!-- Submit Button -->
+                                <div id="form_register_btn" class="col-md-12">                          
+                                    <input class="btn" type="submit" value="Send Message" id="submit">
+                                </div>
+                                    
+                            </form>                     
+
+                        </div>  
+                        
+                    </div>      <!-- END CONTACT FORM -->   
+                    
+                    
+                </div>     <!-- End container -->
+            </section>  <!-- END CONTACTS -->   
+                    
+            
+            <!-- FOOTER
+            ============================================= -->
+            <footer id="footer">
+                <div class="container"> 
+                    <div class="row">
+                    
+                        <!-- Footer Navigation -->
+                        <div id="footer_nav" class="col-sm-6 col-md-4">
+                            <ul class="footer-nav clearfix">
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">Privacy</a></li>
+                                <li><a href="#">Terms</a></li>
+                            </ul>
+
+                            <div id="footer_copy">
+                                <p>&copy; Copyright {% now "Y" %} <a href="http://www.workstry.com">Workstry</a> All Right Reserved</p>
+                            </div>                          
+                        </div>  <!-- End Footer Navigation -->
+                        
+                        
+                        <!-- Footer Social Icons -->
+                        <div id="footer_icons" class="col-sm-6 col-md-4 text-center">                                                                   
+                            <ul class="footer-socials clearfix">
+                                <li><a class="foo_social ico-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="foo_social ico-twitter" href="#"><i class="fa fa-twitter"></i></a></li>   
+                                <li><a class="foo_social ico-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="foo_social ico-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="foo_social ico-dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                                            
+                            <!--                                    
+                                <li><a class="foo_social ico-instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a class="foo_social ico-pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>   
+                                <li><a class="foo_social ico-dropbox" href="#"><i class="fa fa-dropbox"></i></a></li>
+                                <li><a class="foo_social ico-skype" href="#"><i class="fa fa-skype"></i></a></li>
+                                <li><a class="foo_social ico-youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+                                <li><a class="foo_social ico-tumblr" href="#"><i class="fa fa-tumblr"></i></a></li>
+                                <li><a class="foo_social ico-vimeo" href="#"><i class="fa fa-vimeo-square"></i></a></li>
+                                <li><a class="foo_social ico-flickr" href="#"><i class="fa fa-flickr"></i></a></li>
+                                <li><a class="foo_social ico-github" href="#"><i class="fa fa-github-alt"></i></a></li>
+                                <li><a class="foo_social ico-renren" href="#"><i class="fa fa-renren"></i></a></li>
+                                <li><a class="foo_social ico-vk" href="#"><i class="fa fa-vk"></i></a></li>
+                                <li><a class="foo_social ico-xing" href="#"><i class="fa fa-xing"></i></a></li>
+                                <li><a class="foo_social ico-weibo" href="#"><i class="fa fa-weibo"></i></a></li>
+                                <li><a class="foo_social ico-rss" href="#"><i class="fa fa-rss"></i></a></li>                                       
+                            -->                                     
+                            </ul>
+                        </div>   <!-- End Footer Social Icons -->   
+                        
+                        <!-- Newsletter Form -->                        
+                        <div class="col-md-4">                          
+                            <div id="newsletter_form" class="col-sm-12">
+                                <div class="clearfix">
+                                    <form id="subscribe-form" class="subscribe-form pull-right" action="newsletter.php" method="post">
+                                        <input type="email" name="email" class="subscribe-input" placeholder="Enter your e-mail address...">
+                                        <button type="submit" class="subscribe-submit">Subscribe</button>
+                                    </form>
+                                </div>  
+                                <p id="newsletter-paragraph" class="pull-right">Join our newsletter subscription, be always informed</p>
+                            </div>
+                        </div>  <!-- End Newsletter Form -->    
+                    
+                    </div>  <!-- End row -->    
+                </div>    <!-- End container -->        
+            </footer>   <!-- END FOOTER -->
+            
+
+            
+        </div>  <!-- END CONTENT WRAPPER -->        
+    
+        <!-- EXTERNAL SCRIPTS
+        ============================================= -->       
+        <script src="{% static 'home_theme/js/jquery-2.1.3.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'home_theme/js/bootstrap.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'home_theme/js/modernizr.custom.js' %}" type="text/javascript"></script>
+        <script src="{% static 'home_theme/js/jquery.easing.js' %}" type="text/javascript"></script>
+        <script src="{% static 'home_theme/js/retina.js' %}" type="text/javascript"></script> 
+        <script src="{% static 'home_theme/js/jquery.stellar.min.js' %}" type="text/javascript"></script> 
+        <script src="{% static 'home_theme/js/jquery.mixitup.js' %}" type="text/javascript"></script>
+        <script src="{% static 'home_theme/js/jquery.prettyPhoto.js' %}" type="text/javascript"></script>
+        <script src="{% static 'home_theme/js/owl.carousel.js' %}" type="text/javascript"></script>
+        <script defer src="{% static 'home_theme/js/jquery.flexslider.js' %}" type="text/javascript"></script>    
+        <script src="{% static 'home_theme/js/jquery.easypiechart.min.js' %}"></script>
+        <script defer src="{% static 'home_theme/js/count-to.js' %}"></script>
+        <script defer src="{% static 'home_theme/js/jquery.appear.js' %}"></script>   
+        <script defer src="{% static 'home_theme/js/jquery.validate.min.js' %}" type="text/javascript"></script>  
+        <script src="{% static 'home_theme/js/waypoints.min.js' %}" type="text/javascript"></script>  
+        <script src="{% static 'home_theme/js/custom.js' %}" type="text/javascript"></script> 
+            
+        <!--[if lt IE 9]>
+            <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->        
+    
+        <script src="{% static 'home_theme/js/changer.js' %}" type="text/javascript" ></script>
+        <script defer src="{% static 'home_theme/js/styleswitch.js' %}"></script> 
+        
+        
+    </body>
+    
+    
+</html> 

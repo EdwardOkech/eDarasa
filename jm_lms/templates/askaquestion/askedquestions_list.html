@@ -1,0 +1,94 @@
+{% extends "base_site.html" %}
+{% load staticfiles %}
+{% load has_group %}
+
+{% block title %}Questions Asked{% endblock %}
+
+{% block body %}
+
+<!-- Section show current page and breadcrumb -->
+<section class="page-indecator">
+    <div class="container">
+        <h2 class="heading">&nbsp;</h2>
+        <!-- Breadcrumb pattern -->
+        <ol class="breadcrumb">
+            <li><a href="{% url 'student_dashboard' %}">Home</a></li>
+            <li class="active">Questions asked</li>
+        </ol>
+        <!-- Default one color divider -->
+        <div class="divider"></div>
+    </div>
+</section> <br><br><br>
+<!-- end section show current page and breadcrumb -->
+
+<section>
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-12">
+                
+                
+                <div class="tabs tabs--minimal present-addition-lg">
+                
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#one" data-toggle="tab">Questions Asked</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="one">
+                        
+            <!-- Target table for specific needs -->
+            <div class="table-responsive">
+                <table class="table table--target table--mod table--target table--forum">                    
+                    <thead>
+                        <tr>
+                            <th class="table-main">Date</th>
+                            <th class="table-main">Subject</th>
+                            <th class="table-main">Replies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for question in questions_asked %}
+                        <tr>
+                            <td>{{ question.sent_at|date }}</td>
+                            <td><a href="{% url 'askaquestion:askedquestion_detail' question.slug %}">{{ question.title }}</a></td>
+                            {% if question.answer|length > 0 %}
+                            <td>{{ question.answer }}</td>
+                            {% else %}
+                            <td>0</td>
+                            {% endif %}
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3">No Questions yet.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- end responsive table -->
+                            
+                    </div>
+                    <div class="tab-pane" id="two">
+                        
+                    </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- end tabs -->
+    
+        <!-- end col -->
+
+</div>
+
+        <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+
+
+{% endblock body %}

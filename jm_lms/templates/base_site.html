@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+{% load i18n %}
+{% load staticfiles %}
+
+<html lang="en-us" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Basic Page Needs -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="utf-8">
+    <title>{% block title %}Home{% endblock %} | Workstry</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <!-- Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+    <!-- Fonts -->
+    <!-- Open Sans -->
+    <link href="{% static 'theme/css/css.css' %}" rel="stylesheet" type="text/css">
+    <!-- VarelaRound -->
+    <link href="{% static 'theme/css/css(1).css' %}" rel="stylesheet" type="text/css">
+    <!-- Icon Font - Font Awesome -->
+    <link href="{% static 'theme/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Stylesheets -->
+    <!-- External -->
+    <!-- Mobile menu -->
+    <link href="{% static 'theme/css/z-nav.css' %}" rel="stylesheet">
+    <!-- Custom -->
+    <link href="{% static 'theme/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'theme/css/bootstrap-social.css' %}" rel="stylesheet">
+    <script src="{% static 'theme/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'theme/js/webfont.js' %}"></script>
+    <link href="{% static 'theme/css/style.css' %}" rel="stylesheet" type="text/css">
+    <!-- *** Favicons *** -->
+    <!--[if IE]><link rel="icon"  href="favicons/favicon_16x16.ico" /><![endif]-->
+    <link rel="icon" href="http://olem.co.ke/demo/favicons/favicon_96x96.png">
+    <!-- Specifying a Webpage Icon for Web Clip -->
+    <link rel="apple-touch-icon-precomposed" href="http://olem.co.ke/demo/favicons/favicon_57x57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://olem.co.ke/demo/favicons/favicon_72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://olem.co.ke/demo/favicons/favicon_114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://olem.co.ke/demo/favicons/favicon_144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://olem.co.ke/demo/favicons/favicon_180x180.png">
+
+    <!-- Modernizr -->
+    <script src="{% static 'theme/js/modernizr.custom.js' %}"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    	<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+        <link href="css/ie9.css?v=1" rel="stylesheet" />
+    <![endif]-->
+
+
+</head>
+
+<body style="">
+
+    <div class="wrapper" id="top">
+        <!-- Header section -->
+        <header class="header header--dark">
+            <div class="header-fixed">
+                <div class="header-line waypoint" data-animate-down="header-up" data-animate-up="header-down">
+                    <div class="container">
+
+
+                    </div>
+                    <!-- end container -->
+                </div>
+                <div class="fixed-top header-down">
+                    <div class="container">
+                        <!--  Logo  -->
+                        <a class="logo logo--shop" href="{% url 'home:homepage' %}">
+                            <!-- Remove comments to choose image and add comment to h1 -->
+                            <img src="{% static 'theme/images/logo.png' %}" alt="">
+                            <!--<h1 class="logo__text"></h1> -->
+                        </a>
+                        <!-- End Logo -->
+                        <!-- Navigation section -->
+                        <nav class="z-nav">
+                            <!-- Toggle for menu mobile view -->
+                            <a href="#" class="z-nav__toggle">
+                                <span class="menu-icon"></span>
+                                <span class="menu-text">menu</span>
+                                <div class="menu-head"></div>
+                            </a>
+                            <ul class="z-nav__list z-nav--shop">
+                                <li class="z-nav__item">
+                                    <!-- Subsidiary menu toogle button -->
+                                    <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span>
+                                    {% if user.is_authenticated %}
+							        <a class="z-nav__link" href="{% url 'student_dashboard' %}">Home</a>
+							        {% else %}
+							        <a class="z-nav__link" href="{% url 'home:homepage' %}">Home</a>
+							        {% endif %}
+
+                                </li>
+                                <li class="z-nav__item">
+                                    <!-- Subsidiary menu toogle button -->
+                                    <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span>
+                                    {% if user.is_authenticated %}
+                                     <a class="z-nav__link" href="{% url 'logout' %}">Log Out</a>
+                                    {% endif %}
+                                </li>
+
+                            </ul>
+                            <!-- end list menu item -->
+                        </nav>
+                        <!-- end navigation section -->
+                        <!-- Notification cart section -->
+                        <div class="cart">
+                            <!-- Toggle for menu mobile view -->
+                            <a href="#" class="cart__toggle close-nav">
+                                <span class="fa fa-user cart__toggle--icon"></span>
+                                <!-- <span class="cart__text">Notification Cart (2) - <span class="cart-highlight">$299</span></span> -->
+                                <div class="cart__head">
+                                    <span class="cart__text">Notifications (2)</span>
+                                </div>
+                            </a>
+                            <!-- Notification cart indecator -->
+                            <div class="cart__link">
+                                <i class="fa fa-user cart__icon"></i>
+                                <span class="cart__indecator">
+                                {% if user.is_authenticated %}
+							        {{user.get_short_name}}
+							    {% else %}
+							        Guest
+							    {% endif %}
+							    </span>
+                                <i class="fa fa-angle-down icon__more"></i>
+                            </div>
+
+                            <!-- Notification cart list -->
+                            {% if user.is_authenticated %}
+
+                            <div class="cart__list close-nav">
+                                <a href="{% url 'askaquestion:askedquestions_list' %}">My Questions</a><br/>
+{#                                <a href="{% url 'purchase:payment' %}">Make Payments</a><br/>#}
+{#                                <a href="{% url 'purchase:process_payment_feedback' %}">Payments</a><br/>#}
+{#                                <a href="{% url 'logout' %}">Log Out</a>#}
+                                <!-- Notification cart item -->
+                                <!--<div class="cart__item">
+                                    <a class="cart__item-image" href="http://olem.co.ke/demo/single-product.html">
+                                        <img alt="" src="images/laptop.jpg">
+                                    </a>
+                                    <a href="http://olem.co.ke/demo/single-product.html" class="cart__item-title">Laptop NX3452</a>
+                                    <div class="cart__item-rating"><img src="images/stars.svg" alt=""></div>
+                                    <p class="cart__item-price">$ 198</p>
+                                    <p class="cart__item-bonus">Bonus: 5%</p>
+                                    <a href="http://olem.co.ke/demo/shop-list.html#" class="cart__close"><i class="fa fa-times"></i></a>
+                                </div>-->
+                                <!-- end Notification cart item -->
+                                <!-- Notification cart list -->
+                                <!--<div class="cart__item">
+                                    <a class="cart__item-image" href="http://olem.co.ke/demo/single-product.html">
+                                        <img alt="" src="images/laptop.jpg">
+                                    </a>
+                                    <a href="http://olem.co.ke/demo/single-product.html" class="cart__item-title">Laptop AJ124 Mini</a>
+                                    <div class="cart__item-rating"><img src="{% static 'theme/images/stars.svg' %}" alt=""></div>
+                                    <p class="cart__item-price">$ 101</p>
+                                    <p class="cart__item-bonus">Bonus: 2%</p>
+                                    <a href="http://olem.co.ke/demo/shop-list.html#" class="cart__close"><i class="fa fa-times"></i></a>
+                                </div>-->
+                                <!-- end Notification cart item -->
+                            <!-- nothing important -->
+                            <!-- another nothing -->
+
+                            </div>
+                            {% endif %}
+                            <!-- end cart list-->
+                        </div>
+                        <!-- end Notification cart -->
+                    </div>
+                    <!-- end container -->
+                    <!-- Colored divider -->
+                    <svg class="divider-color" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin" width="4150" height="3" viewBox="0 0 415 3">
+                        <defs>
+                            <g id="svg_stripe">
+                                <rect width="95" height="3" class="cls-1"></rect>
+                                <rect x="95" width="5" height="3" class="cls-2"></rect>
+                                <rect x="100" width="100" height="3" class="cls-3"></rect>
+                                <rect x="200" width="5" height="3" class="cls-2"></rect>
+                                <rect x="205" width="100" height="3" class="cls-4"></rect>
+                                <rect x="305" width="5" height="3" class="cls-2"></rect>
+                                <rect x="310" width="105" height="3" class="cls-5"></rect>
+                            </g>
+                        </defs>
+
+                        <use xlink:href="#svg_stripe"></use>
+                        <use xlink:href="#svg_stripe" transform="translate(415, 0)"></use>
+                        <use xlink:href="#svg_stripe" transform="translate(830, 0)"></use>
+                        <use xlink:href="#svg_stripe" transform="translate(1245, 0)"></use>
+                        <use xlink:href="#svg_stripe" transform="translate(1660, 0)"></use>
+                        <use xlink:href="#svg_stripe" transform="translate(2075, 0)"></use>
+                        <use xlink:href="#svg_stripe" transform="translate(2490, 0)"></use>
+                        <use xlink:href="#svg_stripe" transform="translate(2905, 0)"></use>
+                        <use xlink:href="#svg_stripe" transform="translate(3320, 0)"></use>
+                        <use xlink:href="#svg_stripe" transform="translate(3735, 0)"></use>
+                        <use xlink:href="#svg_stripe" transform="translate(4150, 0)"></use>
+                    </svg>
+                </div>
+                <!-- end fixed top block -->
+            </div>
+        </header>
+        <!-- end header section -->
+
+        <!-- Section show current page and breadcrumb -->
+        <section class="page-indecator">
+            <div class="container">
+            <br><br><br>
+            </div>
+        </section> <br><br><br>
+        <!-- end section show current page and breadcrumb -->
+
+		{% block body %}{% endblock %}
+
+        <!-- Colored divider -->
+        <div class="divider-color bottom-space--m"></div>
+        <!-- Footer section -->
+        <footer class="footer">
+            <div class="container">
+                <div class="copy">
+                    &copy; <a href="http://www.workstry.com">Workstry</a>, {% now "Y" %}.
+                </div>
+            </div>
+            <!-- end container -->
+        </footer>
+        <!-- end footer section -->
+        <div class="top-scroll" style="display: none;"><i class="fa fa-angle-up"></i></div>
+    </div>
+    <!-- JavaScript-->
+    <!-- External-->
+    <!-- jQuery 1.12.1-->
+    <script src="{% static 'theme/js/jquery-1.12.0.min.js' %}"></script>
+    <script>
+        window.jQuery || document.write('<script src="external/jquery/jquery-1.10.1.min.js"><\/script>')
+    </script>
+
+    <!-- Bootstrap 3-->
+    <script src="{% static 'theme/js/bootstrap.min.js' %}"></script>
+    <!-- Mobile menu -->
+    <script src="{% static 'theme/js/jquery.mobile.menu.js' %}"></script>
+    <!-- Scroll to plugin -->
+    <script src="{% static 'theme/js/jquery.scrollTo.min.js' %}"></script>
+
+    <!-- Livicons -->
+    <!--<script src="{% static 'theme/js/livicons-1.3.min.js' %}"></script>-->
+
+    <!-- Event that will trigger when the element is scrolled in to the viewport.-->
+    <script src="{% static 'theme/js/jquery.inview.js' %}"></script>
+    <!-- Custom -->
+    <script src="{% static 'theme/js/custom.js' %}"></script>
+
+    <script src="{% static 'theme/js/scrollbar.js' %}"></script>
+{#    <script>#}
+{#        $(document).ready(function(){#}
+{#            /* this function does'nt work on mobile browsers#}
+{#           /* $('.close-nav').click(function(){#}
+{#                $('#log').toggle();#}
+{#            });*/#}
+{#           // a method that adds the navigation list items to the menu after a click event#}
+{#            $('.z-nav__toggle').click(function(){#}
+{#                //var val = $('.z-nav__list').val();#}
+{##}
+{#                var menuItem = '<span class="z-nav__toggle-sub plus">'+#}
+{#                        '<i class="fa fa-plus"></i><i class="fa fa-minus"></i></span>'+#}
+{#                        '{% if user.is_authenticated %}'+#}
+{#                           '<a class="z-nav__link" href="{% url 'logout' %}">Log Out</a>' +#}
+{#							        '{% endif %}';#}
+{#                    // while('.z-nav__list'.length > 1 && '.z-nav__list'.length < 2){#}
+{#                         $('.z-nav__list').append('<li class="z-nav__item">'+ menuItem +'</li>');#}
+{#                     //};#}
+{##}
+{#            });#}
+{#        });#}
+{#    </script>#}
+    
+    
+    
+</body>
+
+</html>

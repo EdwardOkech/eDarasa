@@ -1,0 +1,38 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %}Make Payment{% endblock %}
+
+{% block body %}
+        <section class="container">
+            <h2 class="block-title block-title--top-large block-title--bottom">Pay for your training</h2>
+            <p>To access the course materials, you need to pay a one-time fee of <b>Kes 1000/-</b>. This fee is refundable minus charges if requested via an email to info@workstry.com following the fulfillment of both conditions below:
+            <ul>
+                <li>Successful completion of all the required online training and face-to-face interviewing with Workstry trainers</li>
+                <li>Failure to receive at least five interview invitations via Workstry in the three months following successful completion of required training</li>
+            </ul>
+            </p>
+            
+            <p>Fill in the form below as per your MPESA registration.</p>
+            
+            <div class="login">
+                <form action="{% url 'purchase:process_payment' %}" method="post" class="contact" id="contact-form" name="contact-form" validate>
+                    {% csrf_token %}
+                    
+                    <input class="contact__field" id="id_first_name" name="first_name" type="text" placeholder="First Name" required>
+                    
+                    <input class="contact__field" id="id_last_name" name="last_name" type="text" placeholder="Last Name" required>
+                    
+                    {% for hidden in form.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
+                    
+                    <button class="btn btn--decorated btn-warning login__btn" type="submit">Purchase</button>
+                </form>
+                
+            </div>            
+        </section>
+        <!-- end container -->
+
+{% endblock %}

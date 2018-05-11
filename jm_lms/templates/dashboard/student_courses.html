@@ -1,0 +1,82 @@
+{% extends "base_generic_student.html" %}
+{% load staticfiles %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<div id="contentwrapper">
+    <div class="main_content">
+        <div id="jCrumbs" class="breadCrumb module">
+            <ul>
+                <li>
+                    <a href="{% url 'student_dashboard' %}"><i class="glyphicon glyphicon-home"></i></a>
+                </li>
+            </ul>
+        </div>	
+               
+        
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <h3 class="heading">My Courses</h3>
+                               
+                <table class="table table-bordered table-striped" id="smpl_tbl">
+			        <thead>
+				        <tr>
+					        <th class="table_checkbox"><input name="select_rows" class="select_rows" data-tableid="smpl_tbl" type="checkbox"></th>
+					        <th>Course</th>
+					        <th>Date Enrolled</th>
+					        <th>Status</th>
+					        <th>% Complete</th>
+				        </tr>
+			        </thead>
+			        <tbody>
+			            {% for enrollment in my_enrollments %}
+				        <tr>
+					        <td><input name="row_sel" class="select_row" type="checkbox"></td>
+					        <td><a href="{% url 'student_modules' enrollment.course.slug %}">{{ enrollment.course.name }}</a></td>
+					        <td>{{ enrollment.created }}</td>
+					        <td>In Progress</td>
+					        <td>0%</td>
+				        </tr>
+				        {% endfor %}
+			        </tbody>
+		        </table>
+		    </div>
+        </div> 
+        
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <h3 class="heading">My Completed Courses</h3>
+                               
+                {% if my_completed_enrollments %}
+                <table class="table table-bordered table-striped" id="smpl_tbl">
+			        <thead>
+				        <tr>
+					        <th class="table_checkbox"><input name="select_rows" class="select_rows" data-tableid="smpl_tbl" type="checkbox"></th>
+					        <th>Course</th>
+					        <th>Date Enrolled</th>
+					        <th>Status</th>
+				        </tr>
+			        </thead>
+			        <tbody>
+			            {% for enrollment in my_completed_enrollments %}
+				        <tr>
+					        <td><input name="row_sel" class="select_row" type="checkbox"></td>
+					        <td><a href="{% url 'student_modules' enrollment.course.slug %}">{{ enrollment.course.name }}</a></td>
+					        <td>{{ enrollment.created }}</td>
+					        <td>Completed</td>
+				        </tr>
+				        {% endfor %}
+			        </tbody>
+		        </table>
+		        {% else %}
+		        Zero courses completed.
+		        {% endif %}
+		    </div>
+        </div>
+        
+        
+                       
+    </div>
+</div>
+{% endblock body %}

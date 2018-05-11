@@ -1,0 +1,56 @@
+{% extends "base_generic_student.html" %}
+{% load staticfiles %}
+{% load has_group %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<div id="contentwrapper">
+    <div class="main_content">
+        <div id="jCrumbs" class="breadCrumb module">
+            <ul>
+                <li>
+                    <a href="{% url 'student_dashboard' %}"><i class="glyphicon glyphicon-home"></i></a>
+                </li>
+            </ul>
+        </div>	
+               
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <h3 class="heading">My Questions</h3>
+                               
+                {% if student_lesson_questions %}
+                <table class="table table-bordered table-striped" id="smpl_tbl">
+			        <thead>
+				        <tr>
+					        <th class="table_checkbox"><input name="select_rows" class="select_rows" data-tableid="smpl_tbl" type="checkbox"></th>
+					        <th>Title</th>
+					        <th>Lesson</th>
+					        <th>Status</th>
+					        <th>Date Asked</th>
+				        </tr>
+			        </thead>
+			        <tbody>
+			            {% for question in student_lesson_questions %}
+				        <tr>
+					        <td><input name="row_sel" class="select_row" type="checkbox"></td>
+					        <td><a href="#">{{ question.title }}</a></td>
+					        <td><a href="{% url 'learn_lesson' question.lesson.module.course.slug question.lesson.module.slug question.lesson.slug %}">{{ question.lesson.name }}</a></td>
+					        <td>{{ question.get_status_display }}</td>
+					        <td>{{ question.date_asked }}</td>
+				        </tr>
+				        {% endfor %}
+			        </tbody>
+		        </table>
+		        {% else %}
+		        No questions have been asked so far.
+		        {% endif %}
+		    </div>
+        </div>
+        
+        
+
+                       
+    </div>
+</div>
+{% endblock body %}

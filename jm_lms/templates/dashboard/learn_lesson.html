@@ -1,0 +1,388 @@
+{% extends "base_site.html" %}
+{% load staticfiles %}
+{% load exercise_tags %}
+{% load course_tags %}
+{#{% load social_share %}#}
+
+{% block title %}Learn Lesson{% endblock %}
+
+{% block body %}
+
+        <!-- Section show current page and breadcrumb -->
+        <section class="page-indecator">
+            <div class="container">
+                <h2 class="heading">Lesson: {{ lesson.name }}</h2>
+                <!-- Breadcrumb pattern -->
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'student_dashboard' %}">Home</a></li>
+                    <li><a href="{% url 'student_modules' lesson.module.course.slug %}">{{ lesson.module.course.name }}</a></li>
+                    <li><a href="{% url 'student_lessons' lesson.module.course.slug lesson.module.slug %}">{{ lesson.module.name }}</a></li>
+                    <li class="active">{{ lesson.name }}</li>
+                </ol>
+                <!-- Default one color divider -->
+                <div class="divider"></div>
+            </div>
+        </section> <br><br><br>
+        <!-- end section show current page and breadcrumb -->
+        
+        <!-- Section with tabs -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">                    
+                    
+                      <!-- Modal -->
+                      <div class="modal fade fade--zoom" id="modalStyle2" style="display: none;">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                              <h4 class="modal-title">Example</h4>
+                            </div>
+                            <div class="modal-body">
+                              <h1>No content yet.</h1>
+                              <!--<p>Phasellus tristique urna eget dui sollicitudin vel sagittis libero malesuada. Aenean id ligula odio. Mauris in nunc non orci accumsan vulputate laoreet id est. </p>
+                              <ul class="list">
+                                <li>Etiam augue sem, pellentesque </li>
+                                <li>Duis nec neque posuere, gravida</li>
+                                <li>Cras felis nunc, tempus ut</li>
+                                <li>Ut tincidunt varius pellentesque. </li>
+                                <li>Donec imperdiet posuere dolor, at fringilla augue</li>
+                              </ul>-->
+                            </div>
+                          </div>
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                      </div>
+                      <!-- /.modal -->
+
+                                            
+                        
+                        
+                        
+                        
+                        
+                        {% if messages %}
+                        <div class="notify successbox">
+                            <h1>Success!</h1>
+                            <span class="alerticon"><img src="{% static 'theme/images/check.png' %}" alt="checkmark" /></span>
+                            {% for message in messages %}
+                            <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+
+                        <!-- Start of Social media sharing alert box -->
+
+{#                        {% get_module_last_lesson %}#}
+{#                        {% for module in completed_modules %}#}
+{#                        <div class="notify successbox">#}
+{#                            <h1>Congragulations!</h1>#}
+{#                            <span class="alerticon"><img src="{% static 'theme/images/check.png' %}" alt="checkmark" /></span>#}
+{##}
+{#                            <p>Congragulations {{ user.username }} </p>#}
+{#                            <p>you have completed {{ lesson.module.course.name }} </p><br>#}
+{#                            <p>{{ lesson.module.end_of_module | safe }}</p>#}
+{##}
+{#                            <p>{% post_to_facebook object_or_url "Share on Facebook" %}</p>#}
+{##}
+{#                        </div>#}
+{#                        {% endfor %}#}
+                          {% get_module_last_lesson %}
+                          {% if last_lesson %}
+                          <div class="notify successbox">
+                            <h1>Congratulations!</h1>
+                            <span class="alerticon"><img src="{% static 'theme/images/check.png' %}" alt="
+                            checkmark"></span>
+                            <p>Congratulations {{user.username}}</p>
+                            <p>You have completed {{ lesson.module.name }}</p>
+                          </div>
+                          {% endif %}
+
+
+                        <!-- End of Social media sharing alert box -->
+
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="tabs present-addition">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li {% if active_tab == "lesson" %}class="active"{% endif %}><a href="#lesson" data-toggle="tab">Lesson Content</a></li>
+                                <li {% if active_tab == "workbook" %}class="active"{% endif %}><a href="#workbook" data-toggle="tab">Workbook</a></li>
+                                <li {% if active_tab == "answers" %}class="active"{% endif %}><a href="#answers" data-toggle="tab">Answers</a></li>
+                            </ul>
+                            
+                            {% if messages %}
+                            <div>{{ message }}</div>
+                            <!--<ul class="messages">
+                              {% for message in messages %}
+                              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                              {% endfor %}
+                            </ul>-->
+                            {% endif %}
+                            
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="lesson">
+                                    <p>{{ lesson.content|safe }}</p>
+                                    
+                                    <!--<p><a href="#" data-toggle="modal" data-target="#modalStyle2">View Example</a></p>-->
+                                    
+                                    {% if lesson.instructions_before %}
+                                    <h3>Instructions</h3>
+                                    <p>{{ lesson.instructions_before|safe }}</p>
+                                    {% endif %}
+                                <div class="btn-container btn-container-info" id="wkbck">
+                                         <a class="btn btn-info btn--minimal btn-lg-bordered btn-inverse" href="#" data-toggle="tab" data-target="#workbook" >Take Exercise</a>
+                                </div>
+                                </div>
+
+                                
+                                <div class="tab-pane" id="workbook">
+                                    
+                                    {% if lesson.get_exercises %}
+                                    {% for exercise in lesson.get_exercises %}
+                                        <h4>{{ exercise.title }}</h4>
+                                        
+                                        <form method="post" action="{% url 'exercise_submit' lesson.id exercise.id %}" class="contact" style="text-align:left;">
+                                        {% csrf_token %}
+                                        
+                                        <input type="hidden" id="exercise_id" name="exercise_id" value="{{ exercise.id }}">
+                                        
+                                        {% for question in exercise.question_set.all %}
+                                            <h6>{{ question.title }}</h6>
+                                            {% for answer in question.num_of_expected_answers|get_range %}
+                                                {{ forloop.counter }}: <input type="text" name="qu-{{ question.id }}-{{ forloop.counter }}" id="answer-{{ question.id }}-{{ forloop.counter }}" class="contact__field" style="width: 50%;" required /></br>
+                                            {% endfor %}                                                                        
+                                        {% endfor %}
+
+                                      {% for taquestion in exercise.tableexercisequestion_set.all %}
+                                           <h6>{{ taquestion.table_header }}</h6>
+                                          {% for answer in taquestion.num_of_expected_entries|get_range %}
+                                              {{ forloop.counter }}: <input type="text" name="ta-{{ taquestion.id }}-{{ forloop.counter }}" id="answer-{{ taquestion.id }}-{{ forloop.counter }}" class="contact__field" style="width: 50%;" required /></br>
+                                           {% endfor %}
+                                       {% endfor %}
+                                        
+                                        {% for mcquestion in exercise.multichoicequestion_set.all %}
+                                            <h6>{{ mcquestion.title }}</h6>
+                                            
+                                            <div class="checkbox">
+                                            {% for option in mcquestion.multichoicequestionoption_set.all %}
+                                                {% with forloop.counter as curr_counter %} 
+                                                <input type="checkbox" id="mcq-{{ mcquestion.id }}-{{ curr_counter }}" name="mcq-{{ mcquestion.id }}-{{ curr_counter }}" value="{{ option.content }}" >
+                                                <label for="mcq-{{ mcquestion.id }}-{{ curr_counter }}">{{ option.content }}</label>
+                                                {% endwith %}
+                                            {% endfor %}
+                                            </div>
+                                            
+                                            </br>
+                                        {% endfor %}
+                                        
+                                        {% for essay_question in exercise.essayquestion_set.all %}
+                                            <h6>{{ essay_question.title }}</h6>
+                                            <div class="modal-body">
+                                                <textarea rows="6" cols="50" class="contact__field contact__area" style="width: 50%;" name="eq-{{ essay_question.id }}" id="eq-{{ essay_question.id }}" placeholder="Type your answer here" required></textarea>
+                                            </div>
+                                            </br>                                                        
+                                        {% endfor %}
+                                        
+                                        <div class="btn-container btn-container-info">
+                                            <button type="sumbit" class="btn btn-info btn--minimal btn-lg-bordered btn-inverse" >Submit</button>
+                                        </div>
+                                            
+                                        </form>
+                                    {% endfor %} 
+                                    {% endif %}
+                                    
+                                            <p>
+                <!--<div class="btn-container btn-container-info">
+                    <a class="btn btn-info btn--minimal btn-lg-bordered btn-inverse" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Submit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                </div>-->
+                                    </p>
+                                </div>
+                                <div class="tab-pane" id="answers">
+                                    <h4>Exercise Answers</h3>                                    
+                                    
+                                    <!-- Display normal question answers -->
+                                    {% if questions and answers %}
+                                        {% for question in questions %}
+                                            <h6><b>{{ question.title }}</b></h6>
+                                            {% if answers %}
+                                                <ol>
+                                                {% for answer in answers %}
+                                                    {% if answer.question.id == question.id %}
+                                                    <li>{{ answer.answer }}</li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                </ol>
+                                            {% endif %}
+                                            <h6>Expected Answer</h6>
+                                            <p>{{ question.expected_answer|safe }}</p>
+                                            <hr/>
+                                        {% endfor %}
+                                    {% endif %}
+
+                                    <!-- Displaying table exercise question answers -->
+                                    {% if ta_questions and ta_answers %}
+                                      {% for ta_question in ta_questions %}
+                                         <h6><b>{{ta_question.title}}</b></h6>
+                                         {% if ta_answers %}
+                                            <ol>
+                                             {% for ta_answer in ta_answers %}   
+                                                {% if ta_answer.question.id == ta_question.id %}
+                                                <li>{{ ta_answer.answer }}</li>
+                                                {% endif %}
+                                            {% endfor %}
+                                            </ol>
+                                        {% endif %}
+                                        <h6>Expected Answer</h6>
+                                        <p>{{ ta_question.expected_answer| safe }}</p>
+                                        <hr/>
+                                        {% endfor %}
+                                    {% endif %}
+                                    <!-- End of table exercise quetion answers -->
+                                    
+                                    <!-- Display multichoice question answers -->
+                                    {% if multichoice_questions and mc_answers %}
+                                        {% for mc_question in multichoice_questions %}
+                                            <h6><b>{{ mc_question.title }}</b></h6>
+                                            {% if mc_answers %}
+                                                {% for mc_answer in mc_answers %}
+                                                    {% if mc_answer.question.id == mc_question.id %}
+                                                    <p>{{ mc_answer.selected_choice }}</p>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                            <h6>Expected Answer</h6>
+                                            <p>{{ mc_question.expected_answer|safe }}</p>
+                                            <hr/>
+                                        {% endfor %}
+                                    {% endif %}
+                                    
+                                    <!-- Display essay question answers -->
+                                    {% if essay_questions and eq_answers %}
+                                        {% for es_question in essay_questions %}
+                                            <h6><b>{{ es_question.title }}</b></h6>
+                                            {% if eq_answers %}
+                                                {% for eq_answer in eq_answers %}
+                                                    {% if eq_answer.question.id == es_question.id %}
+                                                    <p>{{ eq_answer.answer }}</p>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                            <h6>Expected Answer</h6>
+                                            <p>{{ es_question.expected_answer|safe }}</p>
+                                            <hr/>
+                                        {% endfor %}
+                                    {% endif %}
+                                    
+                                    <!-- This exercise has not been answered -->                                    
+                                    {% if not answers and not ta_answers and not mc_answers and not eq_answers %}
+                                    <p>Will be revealed after submitting your work.</p>
+                                    {% endif %}
+                                    
+                                    <!-- Show next lesson button if available -->
+                                    {% if answers or ta_answers or mc_answers or eq_answers %}
+                                        {% if lesson.next_lesson %}
+                                        <p>
+                                            <div class="btn-container btn-container-warning">
+                                                <a class="btn btn-warning btn--minimal btn-lg-bordered btn-inverse" href="{% url 'learn_lesson' lesson.next_lesson.module.course.slug lesson.next_lesson.module.slug lesson.next_lesson.slug %}">Next Lesson</a>
+                                            </div>
+                                        </p>                                    
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end tabs -->
+                    </div>
+                    <!-- end col -->
+
+                
+                <!-- end row -->
+        <!-- end container -->
+            </div>
+            <!-- end container -->
+        </section><br>
+        
+        <section class="container">
+            <div class="row">           
+                <div class="col-sm-12">               
+                  <!-- Modal -->
+                  <div class="modal fade fade--flip" id="modalStyle4" style="display: none;">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                          <h4 class="modal-title">Ask a question</h4>
+                        </div>
+                        <div class="form-error alert alert-danger" style="">
+                          <span class="alert-market">
+                                                <i class="fa fa-ban"></i>
+                                            </span>
+                          <div class="form-error__holder"></div>
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
+                        </div>
+                        <form class="contact contact--clean contact--full" id="contact-form-full" name="contact-form" method="post" action="{% url 'askaquestion:process_questionasked' %}" novalidate="">
+                        {% csrf_token %}
+                          
+                          <input type="hidden" name="askquestion-lesson" id="id_askquestion-lesson" class="contact__field" placeholder="Lesson" value="{{ lesson.id }}" required />
+                          
+                          <div class="modal-body">
+                            <input type="text" name="askquestion-title" id="id_askquestion-title" class="contact__field" placeholder="Question title" required />
+                          </div>
+                          
+                          <div class="modal-body">
+                            <textarea class="contact__field contact__area" name="askquestion-body" id="id_askquestion-body" placeholder="Type your question description here"></textarea>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn  btn-info btn-lg-rect btn-rect" data-dismiss="modal">Close</button>
+                            <button type="sumbit" class="btn btn-warning btn-lg-rect btn-rect btn-rect--alt"><i class="fa fa-check"></i>Submit Question</button>
+                          </div>
+                        </form>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                  </div>
+                  <!-- /.modal -->
+        
+                    <!-- Target table for specific needs -->
+                    <div class="table-responsive">
+                        <table class="table table--target table--mod table--target table--forum">
+                            <colgroup class="col-wide-md">
+                                </colgroup><colgroup class="col-small">
+                                    </colgroup><colgroup class="col-small">
+                                        </colgroup><colgroup class="col-middle">
+                                            </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="table-main"></th>
+                                                        <th>
+                                                            <div class="btn-container btn-container-info">
+                    <a class="btn btn-info btn--minimal btn-lg-bordered btn-inverse" href="#" data-toggle="modal" data-target="#modalStyle4">Ask a question</a>
+                </div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                        </table>
+                    </div>
+                    <!-- end responsive table -->
+                </div>
+                <!-- end col -->
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </section>
+        <!-- end section with tabs -->
+{% endblock body %}

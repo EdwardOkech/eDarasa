@@ -1,0 +1,815 @@
+/* 	
+ * 	@author : Wanekeya Sam
+ *	date	: 11 January, 2016
+ * 	http://wanekeyasam.co.ke
+ *	contact@wanekeyasam.co.ke
+ *	Computer Science Student @ United States International University-Africa
+ */
+/* 
+   ------------------------------------------------------
+					Responsive Styles
+   ------------------------------------------------------
+*/
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+	/*------------------------------------------*/
+	/*	 PARAGRAPHS
+	/*------------------------------------------*/
+
+	p {font-size: 14px;line-height: 22px;}
+	
+	/*------------------------------------------*/
+	/*	 SECTION TITLEBAR
+	/*------------------------------------------*/
+	
+	.titlebar p {padding: 0 24%;}
+
+	/*------------------------------------------*/
+	/*	 INTRO CONTENT
+	/*------------------------------------------*/
+	
+	#intro_content {padding-top: 80px; padding-bottom: 80px;}
+	#intro h2 {	font-size: 58px; line-height: 58px; padding-top: 8px;}
+	#intro h3 {	font-size: 18px; margin-bottom: 15px;}
+	
+	/*------------------------------------------*/
+	/*	 INTRO BUTTONS
+	/*------------------------------------------*/
+
+	.intro_buttons {margin-top: 25px;}
+	.intro_buttons .btn {font-size: 13px; padding: 8px 16px;}
+
+	/*------------------------------------------*/
+	/*	 INTRO REGISTER FORM 
+	/*------------------------------------------*/
+
+	.form_register form { margin: 0 12px;}
+	
+	/*------------------------------------------*/
+	/*	  ABOUT IMAGE
+	/*------------------------------------------*/
+	
+	#about_image {padding-right: 0;}
+	
+	/*------------------------------------------*/
+	/*	 SERVICE BOX 
+	/*------------------------------------------*/
+
+	#services {padding-top: 80px; padding-bottom: 40px;}
+	.service-box {margin-bottom: 40px;}
+	.service-box-content h4 {margin-bottom: 5px;}
+	
+	/*------------------------------------------*/
+	/*	  FEATURES IMAGE
+	/*------------------------------------------*/
+
+	#features_image {padding-left: 10px;}
+	#features_image .img-responsive {margin-top: 15px;}
+	#features h5 {font-size: 16px; line-height: 24px;}
+	
+	/*------------------------------------------*/
+	/*	Panel Content 
+	/*------------------------------------------*/
+
+	.panel-body {font-size: 14px;line-height: 22px;}
+		
+	/*------------------------------------------*/
+	/*	MORE FEATURES 
+	/*------------------------------------------*/
+	
+	.m-feature-box {margin-top: 35px;}
+	
+	/*------------------------------------------*/
+	/*	 Portfolio Overlay Content 
+	/*------------------------------------------*/
+
+	.portfolio-item:hover .overlay-content { bottom: 38%; }
+
+	/*------------------------------------------*/
+	/*	 Table Price Plan
+	/*------------------------------------------*/
+
+	.price-row .price span {font-size: 70px;}
+	.price-row .price sup {font-size: 35px;}
+	
+	/*------------------------------------------*/
+	/*	 Table Body
+	/*------------------------------------------*/
+
+	.pricing-table ul.features {font-size: 14px; padding: 5px 30px;}
+	
+	/*------------------------------------------*/
+	/*	  CALL TO ACTION
+	/*------------------------------------------*/
+	
+	#call-to-action p {padding: 0 10%;}
+		
+	/*------------------------------------------*/
+	/*	  Newsletter Form Input
+	/*------------------------------------------*/
+
+	#newsletter form input[type="email"] {width: 45%;}
+	#newsletter form input[type="submit"] {width: 20%;font-size: 15px; }
+	
+	/*------------------------------------------*/
+	/*	 Testimonial Message Text
+	/*------------------------------------------*/
+
+	.testimonials p {font-size: 24px; line-height: 32px;}
+	
+	/*------------------------------------------*/
+	/*	  CONTACT INFO 
+	/*------------------------------------------*/
+
+	.contact-info .animated { padding: 0 5px;}
+
+
+	
+}
+
+
+@media only screen and (max-width: 991px){
+
+	/*------------------------------------------*/
+	/*	 PARAGRAPHS
+	/*------------------------------------------*/
+
+	p {font-size: 14px;line-height: 22px;}
+	
+	/*------------------------------------------*/
+	/*	 SECTION TITLEBAR
+	/*------------------------------------------*/
+	
+	.titlebar p {padding: 0 18%;}
+	
+	/*------------------------------------------*/
+	/*	 Navigation Menu    
+	/*------------------------------------------*/
+
+	.navbar-nav > li > a {letter-spacing: 0; padding: 0 10px; }
+	
+	/*------------------------------------------*/
+	/*	 INTRO CONTENT
+	/*------------------------------------------*/
+			
+	#intro_content {padding-top: 80px; padding-bottom: 80px;}
+	#intro h2 {	font-size: 58px; line-height: 58px; padding-top: 0; text-align: center; }
+	#intro h3 {	font-size: 18px; margin-bottom: 15px;font-weight:bold; }	
+	.intro_text p {	padding: 0 14%; }
+	.intro-list-content p {padding: 0;}
+	.intro_list {padding: 0 0%;}
+		
+	/*------------------------------------------*/
+	/*	 INTRO BUTTONS
+	/*------------------------------------------*/
+
+	.intro_buttons { text-align: center; }
+	.intro_buttons .btn {font-size: 13px; padding: 8px 16px;}
+	
+	/*------------------------------------------*/
+	/*	 INTRO REGISTER FORM  
+	/*------------------------------------------*/
+
+	.form_register form { width: 60%; margin: 30px auto 0;}
+	
+	/*------------------------------------------*/
+	/*	  ABOUT IMAGE
+	/*------------------------------------------*/
+	
+	#about_image {padding: 0 15px; margin-bottom: 30px;}
+	
+	/*------------------------------------------*/
+	/*	 SERVICE BOX 
+	/*------------------------------------------*/
+
+	.service-box-content h4 {margin-bottom: 5px;}
+	
+	/*------------------------------------------*/
+	/*	Panel Content 
+	/*------------------------------------------*/
+
+	.panel-body {font-size: 14px;line-height: 22px;}
+	
+	/*------------------------------------------*/
+	/*	TABS
+	/*------------------------------------------*/
+
+	#tabs-holder {padding: 0 15px;}
+			
+	/*------------------------------------------*/
+	/*	Accordion Column
+	/*------------------------------------------*/
+	
+	#accordion-column {margin-bottom: 60px;}
+	
+	/*------------------------------------------*/
+	/*	  FEATURES IMAGE
+	/*------------------------------------------*/
+
+	#features_image {padding: 0 15px;}
+
+	/*------------------------------------------*/
+	/*	  STATISTIC BLOCK
+	/*------------------------------------------*/ 
+
+	.statistic-number {font-size: 62px; line-height: 62px; }
+	.statistic-text {font-size: 16px;}
+		
+	/*------------------------------------------*/
+	/*	  MORE FEATURES
+	/*------------------------------------------*/ 
+	
+	#more-features .titlebar {margin-bottom: 10px;}
+	#features_left_content, #features_right_content { text-align: center; padding: 0 15%; }
+	.m-feature-box { margin-top: 30px; }
+	#more_features_image .img-responsive { margin-top: 50px; }
+	
+	/*------------------------------------------*/
+	/*	 Promo Line 1
+	/*------------------------------------------*/
+	
+	#promo-1 {padding-bottom: 0px;}
+	#promo-1 h3 {font-size: 18px; margin-bottom: 10px;}
+	#promo-1-buttons .btn { margin: 10px 10px 0 0;}
+	.promo-1-image { text-align: center;}
+	
+	/*------------------------------------------*/
+	/*	 Promo Line 2
+	/*------------------------------------------*/
+	
+	#promo-2 {padding-top: 40px;}
+	#promo-2 h3 {font-size: 18px; margin-bottom: 10px;}
+	#promo-2-buttons .btn { margin: 10px 10px 0 0;}
+	.promo-2-image { text-align: center; margin-top: 20px;}
+
+	/*------------------------------------------*/
+	/*	 Portfolio Overlay Content 
+	/*------------------------------------------*/
+
+	.portfolio-item:hover .overlay-content { bottom: 38%; }
+	
+	/*------------------------------------------*/
+	/*	  CALL TO ACTION
+	/*------------------------------------------*/  
+	
+	#call-to-action h2 {font-size: 22px;}
+	#call-to-action p {font-size: 16px; line-height: 24px; padding: 0 5%;}
+	
+	/*------------------------------------------*/
+	/*	 TIMELINE ITEM CONTENT
+	/*------------------------------------------*/
+	
+	.timeline .timeline-row .timeline-content h2 { font-size: 16px; line-height: 26px; }
+	
+	/*------------------------------------------*/
+	/*	  NEWSLETTER TITLE
+	/*------------------------------------------*/  
+
+	#newsletter h3 {font-size: 28px; line-height: 28px;}
+	#newsletter h4 {font-size: 18px;}
+	
+	/*------------------------------------------*/
+	/*	  Newsletter Form Input
+	/*------------------------------------------*/
+
+	#newsletter form input[type="email"] {width: 50%;}
+	#newsletter form input[type="submit"] {width: 24%;font-size: 15px; }
+	
+	/*------------------------------------------*/
+	/*	 Testimonial Message Text
+	/*------------------------------------------*/
+
+	.testimonials p {font-size: 22px; line-height: 30px; }
+	
+	
+	
+}
+
+
+@media only screen and (max-width: 767px){
+
+	/*------------------------------------------*/
+	/*	 SECTION TITLEBAR
+	/*------------------------------------------*/
+	
+	.titlebar p {padding: 0 12%;}
+
+	#about, #services, #features, #team, #portfolio, #promo-1, #promo-2, #call-to-action, #skills,    
+	#pricing, #clients, #blog, #faq, #testimonials_rotator, #contacts { padding-left: 30px; padding-right: 30px; }
+	
+	/*------------------------------------------*/
+	/*	Content Wrapper
+	/*------------------------------------------*/
+
+	#content_wrapper  {	margin-top: 60px;}
+	
+	/*------------------------------------------*/
+	/*	 Logo Image    
+	/*------------------------------------------*/
+
+	.navbar-brand {padding: 15px 30px;} 
+	
+	/*------------------------------------------*/
+	/*	 Navigation Menu    
+	/*------------------------------------------*/
+
+	.navbar { padding: 0px; }
+	
+	/*------------------------------------------*/
+	/*	 Responsive Menu
+	/*------------------------------------------*/
+	
+	.navbar-nav { margin: 0 -15px; background: #f9f9f9; border-top: 1px solid #ddd;}	
+	.navbar-nav > li { text-align: center;}
+	.navbar-nav > li > a { line-height: 40px; text-align: center;}
+	
+	.navbar-fixed-top .navbar-collapse,
+	.navbar-fixed-bottom .navbar-collapse { max-height: 380px;}
+	
+	/*------------------------------------------*/
+	/*	 INTRO CONTENT
+	/*------------------------------------------*/
+
+	#intro_content {padding-top: 80px; padding-bottom: 80px;}
+	
+	/*------------------------------------------*/
+	/*	 History Timeline 
+	/*------------------------------------------*/	
+	
+	.timeline {padding: 15px 10px; }
+	.timeline:after {left: 28px; }
+	.timeline .timeline-row {padding-left: 0; margin-bottom: 30px; }
+	.timeline .timeline-row .timeline-time {position: relative; right: auto; top: 0; text-align: left; margin: 0 0 18px 56px; }
+	.timeline .timeline-row .timeline-time strong {display: inline-block; margin-right: 10px; }
+	.timeline .timeline-row .timeline-icon {top: 52px;left: -2px; margin-left: 0; }
+	.timeline .timeline-row .timeline-content {margin-left: 56px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); position: relative; }
+	.timeline .timeline-row .timeline-content:after {right: auto !important;left: -20px !important;top: 32px; }
+	.timeline .timeline-row:nth-child(odd) {padding-right: 0; }
+	.timeline .timeline-row:nth-child(odd) .timeline-time {position: relative; right: auto;left: auto;top: 0;text-align: left; margin: 0 0 18px 56px; }
+	.timeline .timeline-row:nth-child(odd) .timeline-content {margin-right: 0; margin-left: 55px; }
+	.timeline.animated .timeline-row:nth-child(odd) .timeline-content {left: 20px; }
+	.timeline.animated .timeline-row.active:nth-child(odd) .timeline-content {left: 0; } 	
+	.timeline .timeline-row .timeline-time small { font-size: 14px;display: inline-block;margin-right: 5px;}
+		
+	/*------------------------------------------*/
+	/*	 Circle Progress Bars
+	/*------------------------------------------*/
+
+	#skills {padding-bottom: 20px;}
+	.skill-item { margin-bottom: 60px;}
+	
+	/*------------------------------------------*/
+	/*	  STATISTIC BLOCK
+	/*------------------------------------------*/ 
+
+	.statistic-number {font-size: 58px; line-height: 58px; }
+	.statistic-text {font-size: 15px; letter-spacing: 3px; }
+	
+	/*------------------------------------------*/
+	/*	  CALL TO ACTION
+	/*------------------------------------------*/
+	
+	#call-to-action p {padding: 0;}
+	
+	/*------------------------------------------*/
+	/*	 Testimonial Message Text
+	/*------------------------------------------*/
+
+	.testimonials p {font-size: 20px; line-height: 26px; }
+	
+	/*------------------------------------------*/
+	/*	  GOOGLE MAP 
+	/*------------------------------------------*/
+	
+	.map-canvas {height: 400px;}
+	
+	/*------------------------------------------*/
+	/*	 Map Title
+	/*------------------------------------------*/
+
+	#map-title {height: 60px;}
+	#map-title h4 {font-size: 14px; padding-top: 22px;}
+	
+	/*------------------------------------------*/
+	/*	 Footer Copyright  
+	/*------------------------------------------*/
+	
+	#footer_copyright {text-align: center;}
+	
+	/*------------------------------------------*/
+	/*	 Footer Social Icons  
+	/*------------------------------------------*/
+	
+	#contact_icons {text-align: center;}
+
+	
+	
+}
+
+
+@media only screen and (max-width: 640px){
+
+	/*------------------------------------------*/
+	/*	 SECTION TITLEBAR
+	/*------------------------------------------*/
+	
+	.titlebar p {padding: 0 4%;}
+
+	/*------------------------------------------*/
+	/*	 INTRO CONTENT
+	/*------------------------------------------*/
+
+	#intro h2 {	font-size: 50px; line-height: 50px; }
+	#intro h3 {	font-size: 15px; line-height: 15px;}
+	.intro_text p { font-size: 14px; line-height: 22px; padding: 0 12%;}
+	.intro_list {padding: 0 0%;}
+	.intro-list-content p {padding: 0;}
+	
+	/*------------------------------------------*/
+	/*	 INTRO REGISTER FORM  
+	/*------------------------------------------*/
+
+	.form_register form { width: 70%; margin: 30px auto 0;}
+			
+	/*------------------------------------------*/
+	/*	  STATISTIC BLOCK
+	/*------------------------------------------*/ 
+
+	.statistic-number {font-size: 52px; line-height: 52px; }
+	.statistic-text {font-size: 14px;}
+	
+	/*------------------------------------------*/
+	/*	 SERVICE BOX 
+	/*------------------------------------------*/
+	
+	.service-box {width: 100%; float: none; }
+
+	/*------------------------------------------*/
+	/*	  FEATURES
+	/*------------------------------------------*/ 
+	
+	#features h5 {font-size: 16px; line-height: 22px;}
+		
+	/*------------------------------------------*/
+	/*	 Portfolio Overlay Content 
+	/*------------------------------------------*/
+	
+	.overlay-content h4 {font-size: 18px;}
+	.overlay-content h5 {font-size: 14px;}
+
+	.portfolio-item:hover .overlay-content { bottom: 35%; }
+	
+	/*------------------------------------------*/
+	/*	  NEWSLETTER TITLE
+	/*------------------------------------------*/  
+
+	#newsletter h3 {font-size: 24px; line-height: 24px;}
+	#newsletter h4 {font-size: 16px;}
+	
+	/*------------------------------------------*/
+	/*	  Newsletter Form Input
+	/*------------------------------------------*/
+
+	#newsletter form input[type="email"] {width: 56%;}
+	#newsletter form input[type="submit"] {width: 25%; font-size: 14px; padding: 11px 15px;}
+	
+	/*------------------------------------------*/
+	/*	 Testimonial Message Text
+	/*------------------------------------------*/
+
+	.testimonials p {font-size: 16px; line-height: 22px;}
+
+	
+	
+}
+
+	/* =====================================================================
+* comp
+* ===================================================================== */
+@media (min-width: 980px) {
+#row- {
+  padding-top:65px;
+  padding-bottom:0px;
+}
+}
+@media (max-width: 480px) {
+
+	/*------------------------------------------*/
+	/*	 SECTION TITLEBAR
+	/*------------------------------------------*/
+	
+	.titlebar p {font-size: 14px; line-height: 22px; padding: 0;}
+
+	/*------------------------------------------*/
+	/*	 SECTION TITLEBAR
+	/*------------------------------------------*/
+
+	.titlebar h3 {font-size: 20px;}
+	.titlebar h4 {font-size: 13px;}
+	
+	#stlChanger { display: none;}
+	
+	#about, #services, #features, #more-features, #team, #portfolio, #promo-1, #promo-2, #call-to-action, #skills,    
+	#pricing, #clients, #blog, #faq, #testimonials_rotator, #contacts { padding-left: 15px; padding-right: 15px; }
+	
+	/*------------------------------------------*/
+	/*	 Logo Image    
+	/*------------------------------------------*/
+
+	.navbar-brand {padding: 15px 15px;} 
+	
+	/*------------------------------------------*/
+	/*	 Responsive Menu Button    
+	/*------------------------------------------*/
+
+	.navbar-toggle {margin: 13px 15px 13px 0;}
+	
+	/*------------------------------------------*/
+	/*	 INTRO CONTENT
+	/*------------------------------------------*/
+	
+	#intro_content {padding-top: 60px; padding-bottom: 60px;}
+
+
+	#intro h2 {	font-size: 44px; line-height: 44px; }
+	#intro h3 {	font-size: 13px; line-height: 13px; letter-spacing: 2px; }
+	.intro_text p { font-size: 14px; line-height: 22px; padding: 0 5%;}
+	.intro_list {padding: 0 5%;}
+	.intro-list-content p {padding: 0;}
+	
+	/*------------------------------------------*/
+	/*	 INTRO REGISTER FORM  
+	/*------------------------------------------*/
+
+	.form_register form { width: 90%; margin: 30px auto 0;}
+
+	/*------------------------------------------*/
+	/*	  MORE FEATURES
+	/*------------------------------------------*/ 
+	
+	#features_left_content, #features_right_content { text-align: center; padding: 0 5px; }
+	
+	/*------------------------------------------*/
+	/*	 TIMELINE ITEM TEXT
+	/*------------------------------------------*/
+
+	.timeline .timeline-row .timeline-content h2 {font-size: 16px;}
+	
+	/*------------------------------------------*/
+	/*	   Portfolio Button Settings
+	/*------------------------------------------*/ 
+
+	#gallery-filter .btn-group > .btn {font-size: 12px; letter-spacing: 0px; margin: 0 5px 10px;}
+	
+	/*------------------------------------------*/
+	/*	  Portfolio Item
+	/*------------------------------------------*/
+	
+	.portfolio-item { width: 100%; float: none !important; }
+	
+	.portfolio-item:hover .overlay-content { bottom: 40%; }
+	
+	/*------------------------------------------*/
+	/*	  Team Member
+	/*------------------------------------------*/
+	
+	.team_members_wrapper .col-xs-6 { width: 100%; float: none !important;  }
+	.team-member  {margin: 0 40px;}
+	
+	/*------------------------------------------*/
+	/*	 Pricing
+	/*------------------------------------------*/
+	
+	.price-row .col-xs-6 { width: 100%; float: none !important; }
+	.pricing-table {margin: 0 40px;}
+	
+	/*------------------------------------------*/
+	/*	  STATISTIC BANNER
+	/*------------------------------------------*/
+	
+	#statistic_banner {	padding-bottom: 40px;}
+		
+	/*------------------------------------------*/
+	/*	  STATISTIC BLOCK
+	/*------------------------------------------*/
+	
+	.statistic-block {width: 100%; float: none !important; margin-bottom: 40px;  }
+	.statistic-number {font-size: 65px; line-height: 65px; }
+	.statistic-text {font-size: 14px;}
+	
+	/*------------------------------------------*/
+	/*	  Blog Post Titlebar
+	/*------------------------------------------*/ 
+
+	#blog .blog-post-titlebar h5 {font-size: 15px;}
+	
+	/*------------------------------------------*/
+	/*	   CALL TO ACTION
+	/*------------------------------------------*/ 
+	
+	#call-to-action h2 {font-size: 20px;}
+	#call-to-action p {font-size: 14px;line-height: 22px;}
+	
+	/*------------------------------------------*/
+	/*	  NEWSLETTER TITLE
+	/*------------------------------------------*/  
+
+	#newsletter h3 {font-size: 20px; line-height: 24px;}
+	#newsletter h4 {font-size: 14px;}
+	
+	/*------------------------------------------*/
+	/*	  Newsletter Form Input
+	/*------------------------------------------*/
+
+	#newsletter form input[type="email"] {width: 64%; padding: 7px 15px;}
+	#newsletter form input[type="submit"] {width: 30%; font-size: 14px; padding: 8px 15px;}
+
+	/*------------------------------------------*/
+	/*	  Question Settings
+	/*------------------------------------------*/
+
+	.question h4 {font-size: 13px;}
+	
+	/*------------------------------------------*/
+	/*	  Answer Settings
+	/*------------------------------------------*/
+
+	.question p {line-height: 20px;}
+	
+	/*------------------------------------------*/
+	/*	  GOOGLE MAP 
+	/*------------------------------------------*/
+	
+	.map-canvas {height: 350px;}
+	
+	/*------------------------------------------*/
+	/*	 Map Title
+	/*------------------------------------------*/
+
+	#map-title {height: 50px;}
+	#map-title h4 {font-size: 13px; padding-top: 18px;}
+	
+	/*------------------------------------------*/
+	/*	 Footer Copyright  
+	/*------------------------------------------*/
+
+	#footer_copyright p {font-size: 12px;}
+
+
+	
+}
+
+
+@media (max-width: 320px) {
+
+	/*------------------------------------------*/
+	/*	 SECTION TITLEBAR
+	/*------------------------------------------*/
+
+	.titlebar h3 {font-size: 18px; line-height: 22px;}
+	.titlebar h4 {font-size: 13px;}
+	
+	#about, #services, #features, #more-features, #team, #portfolio, #promo-1, #promo-2, #call-to-action, #skills,    
+	#pricing, #clients, #blog, #faq, #testimonials_rotator, #contacts { padding-left: 5px; padding-right: 5px; }
+
+	/*------------------------------------------*/
+	/*	 INTRO CONTENT
+	/*------------------------------------------*/
+
+	#intro h2 {	font-size: 26px; line-height: 26px; }
+	#intro h3 {	font-size: 13px; line-height: 20px; letter-spacing: 2px; }
+	.intro_text p { font-size: 14px; line-height: 22px; padding: 0 5%;}
+	.intro_list {padding: 0 5%;}
+	.intro-list-content p {padding: 0;}
+	
+	/*------------------------------------------*/
+	/*	 INTRO REGISTER FORM  
+	/*------------------------------------------*/
+
+	.form_register form { width: 100%; margin: 30px auto 0;}
+	.form_register h4 {font-size: 13px; letter-spacing: 1px; }
+	
+	/*------------------------------------------*/
+	/*	 INTRO BUTTONS
+	/*------------------------------------------*/
+
+	.intro_buttons {margin-top: 20px;}
+	.intro_buttons .btn {font-size: 12px; padding: 6px 12px; margin: 0 0 15px 0;}
+	
+	/*------------------------------------------*/
+	/*	  Tabs Content Buttons
+	/*------------------------------------------*/
+
+	.tab-content .btn { font-size: 12px; padding: 6px 12px; margin-top: 10px;}
+	
+	/*------------------------------------------*/
+	/*	 TIMELINE ITEM TEXT
+	/*------------------------------------------*/
+
+	.timeline .timeline-row .timeline-content h2 {line-height: 24px;}
+	
+	/*------------------------------------------*/
+	/*	 Circle Progress Bars
+	/*------------------------------------------*/
+
+	#skills .col-sm-3 { width: 100%; float: none!important;}
+
+	/*------------------------------------------*/
+	/*	  STATISTIC BLOCK
+	/*------------------------------------------*/
+
+	.statistic-number {font-size: 55px; line-height: 55px; }
+	
+	/*------------------------------------------*/
+	/*	 SERVICE BOX 
+	/*------------------------------------------*/
+
+	.service-box-content p { padding: 0;}
+	
+	#promo-1-buttons .btn, #promo-2-buttons .btn { font-size: 12px; padding: 6px 12px;}
+	
+	/*------------------------------------------*/
+	/*	  Team Member
+	/*------------------------------------------*/
+	
+	.team-member  {margin: 0 5px;}
+	
+	/*------------------------------------------*/
+	/*	   Portfolio Button Settings
+	/*------------------------------------------*/ 
+
+	#gallery-filter .btn-group > .btn {font-size: 12px; letter-spacing: 0px; margin: 0 5px 15px; padding: 0; border: none;}
+	
+	/*------------------------------------------*/
+	/*	   Filter Button Hover
+	/*------------------------------------------*/ 
+
+	#gallery-filter .btn-group > .btn:hover,
+	#gallery-filter .btn-group > .btn.active, 
+	#gallery-filter .btn-group > .btn.focus	{border: none!important;}
+	
+	/*------------------------------------------*/
+	/*	  Portfolio Item
+	/*------------------------------------------*/ 
+
+	.portfolio-item {padding: 0 5px;}
+	
+	/*------------------------------------------*/
+	/*	  VIDEO CONTENT
+	/*------------------------------------------*/ 
+
+	#video h3 {font-size: 18px;	}
+	#video h4 {font-size: 14px; line-height: 20px;	}
+	
+	/*------------------------------------------*/
+	/*	 Video Buttons
+	/*------------------------------------------*/
+
+	#video-buttons {margin-top: 20px;}
+	#video-buttons .btn {font-size: 12px; padding: 6px 12px; margin-top: 10px;}
+	
+	/*------------------------------------------*/
+	/*	 Pricing
+	/*------------------------------------------*/
+	
+	.pricing-table {margin: 0;}
+	
+	/*------------------------------------------*/
+	/*	  Blog Post Button
+	/*------------------------------------------*/ 
+
+	#blog .btn { font-size: 12px; padding: 6px 12px;}
+	
+	/*------------------------------------------*/
+	/*	  NEWSLETTER
+	/*------------------------------------------*/
+	
+	#newsletter h3 {font-size: 20px; line-height: 24px;}
+	#newsletter p {font-size: 14px; line-height: 20px;}
+	
+	/*------------------------------------------*/
+	/*	  Newsletter Form Input
+	/*------------------------------------------*/
+	
+	#newsletter form input[type="email"] {width: 100%; font-size: 14px; margin-bottom: 10px;}
+	#newsletter form input[type="submit"] {width: 100%; font-size: 14px; margin-left: 0;}	
+	.message {font-size: 16px;}
+	
+	/*------------------------------------------*/
+	/*	 Testimonial Message Text
+	/*------------------------------------------*/
+
+	.testimonials p {font-size: 15px; line-height: 24px;}
+
+	
+	
+}
+/* 	
+ * 	@author : Wanekeya Sam
+ *	date	: 11 January, 2016
+ * 	http://wanekeyasam.co.ke
+ *	contact@wanekeyasam.co.ke
+ *	Computer Science Student @ United States International University-Africa
+ */

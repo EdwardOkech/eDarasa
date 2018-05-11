@@ -1,0 +1,111 @@
+{% extends "base_site.html" %}
+{% load staticfiles %}
+{% load has_group %}
+
+{% block title %}Lessons{% endblock %}
+
+{% block body %}
+
+<!-- Section show current page and breadcrumb -->
+<section class="page-indecator">
+    <div class="container">
+        <h2 class="heading">Module: {{ module.name }}</h2>
+        <!-- Breadcrumb pattern -->
+        <ol class="breadcrumb">
+            <li><a href="{% url 'student_dashboard' %}">Home</a></li>
+            <li><a href="{% url 'student_modules' module.course.slug %}">{{ module.course.name }}</a></li>
+            <li class="active">{{ module.name }}</li>
+        </ol>
+        <!-- Default one color divider -->
+        <div class="divider"></div>
+    </div>
+</section> <br><br><br>
+<!-- end section show current page and breadcrumb -->
+
+<section>
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-12">
+                                
+                <p>{{ module.description|safe }}</p>
+
+                <h4 class="heading">Lessons you will learn</h4>
+                
+                <div class="tabs tabs--minimal present-addition-lg">
+                
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#one" data-toggle="tab">Lessons</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="one">
+                        
+            <!-- Target table for specific needs -->
+            <div class="table-responsive">
+                <table class="table table--target table--mod table--target table--forum">
+                    <thead>
+                        <tr>
+                            <th class="table-main">Lesson title</th>
+                            <th class="table-main">Status</th>
+                            <th class="table-main">Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                    {% for lesson in lesson_list %}
+                        <tr>
+                            <td>
+                                <div class="table__category-photo table__category-photo--markered">
+                                    <img src="{% static 'theme/images/training-icon.jpg' %}" alt="">
+                                </div>
+                                
+                                {% if lesson.is_accessible %}
+                                    <a class="table__category" href="{% url 'learn_lesson' lesson.module.course.slug lesson.module.slug lesson.slug %}">{{ lesson.name }}</a>
+                                {% else %}
+                                    {{ lesson.name }}
+                                {% endif %}
+                                
+                            </td>
+                            <td>{{ lesson.status }}</td>
+                            <td> 
+                                <div class="progress-container progress--secondary progress-cut" id="progress-start">
+                                    <div class="progress-quantity">Progress: <span class="progress-value">{{ lesson.done_percent }}</span>%</div>
+                                    <div class="progress" data-level="{{ lesson.done_percent }}">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{ lesson.done_percent }}%;"></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+            <!-- end responsive table -->
+                            
+                        </div>
+                        <div class="tab-pane" id="two">
+						                    
+                         
+                        </div>
+                        
+                                                  </div>
+                    </div>
+                </div>
+                <!-- end tabs -->
+        
+            <!-- end col -->
+
+</div>
+
+        <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+
+
+{% endblock body %}

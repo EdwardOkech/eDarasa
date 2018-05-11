@@ -1,0 +1,324 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+        <section class="container">
+            <h2 class="block-title block-title--top-large block-title--bottom">Register</h2>
+            <div class="login">
+            
+                <form class="contact" id="contact-form" name="contact-form" action="{% url 'register' %}" method="post" validate>
+                    {% csrf_token %}
+                
+                    {% if form.errors %}				    
+                    <!-- Error messaging -->
+                    <div class="alert alert-warning alert-login">
+                        <div class="errors">		                        
+                                {{ form.non_field_errors }}
+                                <ul id="error" class="error">
+                                    {% for field in form %}
+	                                    {% if field.errors %}<li><strong>ERROR: </strong>{{ field.label }}: {{ field.errors|striptags }}</li>{% endif %}
+                                    {% endfor %}
+                                </ul>		                        
+                        </div>
+                    </div> 
+                    <!-- /Error messaging -->
+                    {% endif %} 	 
+                
+                    <input class="contact__field" id="id_username" name="username" placeholder="Username" type="text" required>
+                    
+					<input class="contact__field" id="id_email" name="email" placeholder="Your email address" type="email" required>
+					
+					<input class="contact__field" type="password" id="id_password1" name="password1" placeholder="Password" required>
+					
+                    <input class="contact__field" type="password" id="id_password2" name="password2" placeholder="Password Confirmation" required>
+                    
+                    <!--<div class="form-group">
+					    <div class="radio"><label><input type="radio" name="user_role" value="student" checked /> Learner</label></div>
+					    <div class="radio"><label><input type="radio" name="user_role" value="employer" /> Employer</label></div>
+					</div>-->
+					<input type="hidden" name="user_role" value="student" />
+					
+                    <!--<div class="checkbox">
+                        <input id="check1" type="checkbox" name="check" value="check1" checked="checked">
+                        <label for="check1">remember me</label>
+                    </div>
+                    <a class="login__callback" href="#">Forgot password?</a>-->
+                    <a href="{% url 'login' %}">Send me back to the sign-in screen</a>
+                    <button class="btn btn--decorated btn-warning login__btn" type="submit">Sign Up</button>
+                </form>
+                
+            </div>
+            <!--<div class="btn-wrapper">
+                <h3 class="heading-helper heading-helper--bottom">You can also sign in via social accounts:</h3>
+                <a class="btn btn--decorated btn--facebook" href="https://www.facebook.com/#"><i class="fa fa-facebook"></i>Facebook</a>
+                <a class="btn btn--decorated btn--twitter" href="https://twitter.com/#"><i class="fa fa-twitter"></i>Twitter</a>
+            </div>-->
+        </section>
+        <!-- end container -->
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="login_page">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Workstry - Register</title>
+    
+        <!-- Bootstrap framework -->
+            <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+        <!-- theme color-->
+            <link rel="stylesheet" href="{% static 'css/blue.css' %}" />
+        <!-- tooltip -->    
+			<link rel="stylesheet" href="{% static 'lib/qtip2/jquery.qtip.min.css' %}" />
+        <!-- main styles -->
+            <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    
+        <!-- favicon -->
+            <link rel="shortcut icon" href="favicon.ico" />
+    
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    
+        <!--[if lt IE 9]>
+            <script src="js/ie/html5.js"></script>
+			<script src="js/ie/respond.min.js"></script>
+        <![endif]-->
+		
+    </head>
+    <body>
+		
+		<div class="login_box">
+			
+			<form action="{% url 'login' %}" method="post" id="login_form" style="display:none">
+			    {% csrf_token %}
+			    
+			    <div class="top_b">Sign in to Workstry</div>		    
+			    
+				    {% if form.errors %}				    
+                    <!-- Error messaging -->
+                    <div class="alert alert-warning alert-login">
+                        <div class="errors">		                        
+                                {{ form.non_field_errors }}
+                                <ul id="error" class="error">
+                                    {% for field in form %}
+	                                    {% if field.errors %}<li><strong>ERROR: </strong>{{ field.label }}: {{ field.errors|striptags }}</li>{% endif %}
+                                    {% endfor %}
+                                </ul>		                        
+                        </div>
+                    </div> 
+                    <!-- /Error messaging -->
+                    {% endif %} 	    
+			    
+				<div class="cnt_b">				    
+				    <div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon input-sm"><i class="glyphicon glyphicon-user"></i></span>
+							<input class="form-control input-sm" type="text" id="id_login" name="login" placeholder="E-mail or Username" value="" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon input-sm"><i class="glyphicon glyphicon-lock"></i></span>
+							<input class="form-control input-sm" type="password" id="id_password" name="password" placeholder="Password" value="" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="checkbox"><label><input type="checkbox" /> Remember me</label></div>
+					</div>
+				</div>
+				<div class="btm_b clearfix">
+					<button class="btn btn-default btn-sm pull-right" type="submit">Sign In</button>
+					<input type="hidden" name="next" value="{{ next }}" />
+					<span class="link_reg"><a href="{% url 'register' %}">Not registered? Sign up here</a></span>
+				</div>  
+			</form>
+			
+			<form action="dashboard.html" method="post" id="pass_form" style="display:none">
+				<div class="top_b">Can't sign in?</div>    
+				<div class="alert alert-info alert-login">
+					Please enter your email address. You will receive a link to create a new password via email.
+				</div>
+				<div class="cnt_b">
+					<div class="formRow clearfix">
+						<div class="input-group">
+							<span class="input-group-addon input-sm">@</span>
+							<input type="text" placeholder="Your email address" class="form-control input-sm" />
+						</div>
+					</div>
+				</div>
+				<div class="btm_b tac">
+					<button class="btn btn-default" type="submit">Request New Password</button>
+				</div>  
+			</form>
+			
+			<form action="{% url 'register' %}" method="post" id="reg_form">
+				{% csrf_token %}
+				
+				<div class="top_b">Sign up to Workstry</div>
+				<div class="alert alert-warning alert-login">
+					By filling in the form bellow and clicking the "Sign Up" button, you accept and agree to <a data-toggle="modal" href="#terms">Terms of Service</a>.
+				</div>
+				<div id="terms" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h3 class="modal-title">Terms and Conditions</h3>
+							</div>
+							<div class="modal-body">
+								<p>
+									Nulla sollicitudin pulvinar enim, vitae mattis velit venenatis vel. Nullam dapibus est quis lacus tristique consectetur. Morbi posuere vestibulum neque, quis dictum odio facilisis placerat. Sed vel diam ultricies tortor egestas vulputate. Aliquam lobortis felis at ligula elementum volutpat. Ut accumsan sollicitudin neque vitae bibendum. Suspendisse id ullamcorper tellus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum at augue lorem, at sagittis dolor. Curabitur lobortis justo ut urna gravida scelerisque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam vitae ligula elit.
+									Pellentesque tincidunt mollis erat ac iaculis. Morbi odio quam, suscipit at sagittis eget, commodo ut justo. Vestibulum auctor nibh id diam placerat dapibus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse vel nunc sed tellus rhoncus consectetur nec quis nunc. Donec ultricies aliquam turpis in rhoncus. Maecenas convallis lorem ut nisl posuere tristique. Suspendisse auctor nibh in velit hendrerit rhoncus. Fusce at libero velit. Integer eleifend sem a orci blandit id condimentum ipsum vehicula. Quisque vehicula erat non diam pellentesque sed volutpat purus congue. Duis feugiat, nisl in scelerisque congue, odio ipsum cursus erat, sit amet blandit risus enim quis ante. Pellentesque sollicitudin consectetur risus, sed rutrum ipsum vulputate id. Sed sed blandit sem. Integer eleifend pretium metus, id mattis lorem tincidunt vitae. Donec aliquam lorem eu odio facilisis eu tempus augue volutpat.
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				{% if form.errors %}				    
+                <!-- Error messaging -->
+                <div class="alert alert-warning alert-login">
+                    <div class="errors">		                        
+                            {{ form.non_field_errors }}
+                            <ul id="error" class="error">
+                                {% for field in form %}
+                                    {% if field.errors %}<li><strong>ERROR: </strong>{{ field.label }}: {{ field.errors|striptags }}</li>{% endif %}
+                                {% endfor %}
+                            </ul>		                        
+                    </div>
+                </div> 
+                <!-- /Error messaging -->
+                {% endif %}
+                
+				<div class="cnt_b">
+					
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon input-sm"><i class="glyphicon glyphicon-user"></i></span>
+							<input class="form-control input-sm" type="text" id="id_username" name="username" placeholder="Username" value="">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon input-sm">@</span>
+							<input class="form-control input-sm" type="text" id="id_email" name="email" placeholder="Your email address" value="">
+						</div>
+						<span class="help-block">The e-mail address is not made public and will only be used if you wish to receive a new password.</span>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon input-sm"><i class="glyphicon glyphicon-lock"></i></span>
+							<input class="form-control input-sm" type="password" id="id_password1" name="password1" placeholder="Password" value="">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon input-sm"><i class="glyphicon glyphicon-lock"></i></span>
+							<input class="form-control input-sm" type="password" id="id_password2" name="password2" placeholder="Password Confirmation" value="">
+						</div>
+					</div>
+					
+					
+					<div class="form-group">
+					    <div class="radio"><label><input type="radio" name="user_role" value="student" checked /> Learner</label></div>
+					    <div class="radio"><label><input type="radio" name="user_role" value="employer" /> Employer</label></div>
+					</div>
+					
+					
+		
+		
+		
+					
+				</div>
+				<div class="btm_b tac">
+					<button class="btn btn-default" type="submit">Sign Up</button>
+				</div>  
+			</form>
+			
+			<div class="links_b links_btm clearfix">
+				<span class="linkform"><a href="#pass_form">Forgot password?</a></span>
+				<span class="linkform" style="display:none">Never mind, <a href="{% url 'login' %}">send me back to the sign-in screen</a></span>
+			</div>
+			
+		</div>
+		 
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/jquery.actual.min.js' %}"></script>
+        <script src="{% static 'lib/validation/jquery.validate.js' %}"></script>
+		<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script>
+            $(document).ready(function(){
+                
+				//* boxes animation
+				form_wrapper = $('.login_box');
+				function boxHeight() {
+					form_wrapper.animate({ marginTop : ( - ( form_wrapper.height() / 2) - 24) },400);	
+				};
+				form_wrapper.css({ marginTop : ( - ( form_wrapper.height() / 2) - 24) });
+                $('.linkform a,.link_reg a').on('click',function(e){
+					var target	= $(this).attr('href'),
+						target_height = $(target).actual('height');
+					$(form_wrapper).css({
+						'height'		: form_wrapper.height()
+					});	
+					$(form_wrapper.find('form:visible')).fadeOut(400,function(){
+						form_wrapper.stop().animate({
+                            height	 : target_height,
+							marginTop: ( - (target_height/2) - 24)
+                        },500,function(){
+                            $(target).fadeIn(400);
+                            $('.links_btm .linkform').toggle();
+							$(form_wrapper).css({
+								'height'		: ''
+							});	
+                        });
+					});
+					e.preventDefault();
+				});
+				
+				//* validation
+				$('#login_form').validate({
+					onkeyup: false,
+					errorClass: 'error',
+					validClass: 'valid',
+					rules: {
+						username: { required: true, minlength: 3 },
+						password: { required: true, minlength: 3 }
+					},
+					highlight: function(element) {
+						$(element).closest('.form-group').addClass("f_error");
+						setTimeout(function() {
+							boxHeight()
+						}, 200)
+					},
+					unhighlight: function(element) {
+						$(element).closest('.form-group').removeClass("f_error");
+						setTimeout(function() {
+							boxHeight()
+						}, 200)
+					},
+					errorPlacement: function(error, element) {
+						$(element).closest('.form-group').append(error);
+					}
+				});
+            });
+        </script>
+    </body>
+</html>
+

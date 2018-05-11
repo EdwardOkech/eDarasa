@@ -1,0 +1,59 @@
+{% extends "base_generic_student.html" %}
+{% load staticfiles %}
+{% load has_group %}
+
+{% block title %}Ask a question{% endblock %}
+
+{% block body %}
+<div id="contentwrapper">
+    <div class="main_content">
+        <div id="jCrumbs" class="breadCrumb module">
+            <ul>
+                <li>
+                    <a href="{% url 'student_dashboard' %}"><i class="glyphicon glyphicon-home"></i></a>
+                </li>
+            </ul>
+        </div>	
+               
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <h3 class="heading">Ask a question</h3>
+                               
+                <form method="POST" action="{% url 'lesson_question_new' lesson.module.course.slug lesson.module.slug lesson.slug %}">
+                    {% csrf_token %}
+			        <div class="formSep">
+				
+			        </div>
+			        
+			        {{ form.non_field_errors }}
+			        
+			        <div class="formSep">
+				        <div class="row">
+					        <div class="col-sm-12 col-md-12">
+						        {{ form.title.errors }}
+						        <label>Question Title <span class="f_req">*</span></label>
+						        <input class="form-control" type="text" id="id_title" name="title">
+						        {% if form.title.help_text %}
+						        <span class="help-block">{{ form.title.help_text|safe }}</span>
+						        {% endif %}
+					        </div>
+					        
+					        <div class="col-sm-12 col-md-12">
+					            {{ form.description.errors }}
+						        <label>Question Details <span class="f_req">*</span></label>
+						        <textarea cols="10" rows="3" class="form-control" id="id_description" name="description"></textarea>
+					        </div>					        
+				        </div>
+			        </div>
+			        
+			        <div class="form-actions">
+				        <button class="btn btn-primary" type="submit">Submit Question</button>
+			        </div>
+			    </form>
+                
+		    </div>
+        </div> 
+                       
+    </div>
+</div>
+{% endblock body %}

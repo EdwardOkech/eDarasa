@@ -1,0 +1,115 @@
+{% extends "base_generic_employer.html" %}
+{% load staticfiles %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<div id="contentwrapper">
+    <div class="main_content">
+        <div id="jCrumbs" class="breadCrumb module">
+            <ul>
+                <li>
+                    <a href="{% url 'employer_dashboard' %}"><i class="glyphicon glyphicon-home"></i></a>
+                </li>
+            </ul>
+        </div>	
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <h3 class="heading">Candidates</h3>
+                <div class="btn-group sepH_b">
+			        <button data-toggle="dropdown" class="btn dropdown-toggle btn-default btn-sm">Action <span class="caret"></span></button>
+			        <ul class="dropdown-menu">
+				        <li><a href="tables_more.html#" class="delete_rows_simple" data-tableid="smpl_tbl"><i class="icon-trash"></i> Delete</a></li>
+				        <li><a href="javascript:void(0)">Export as CSV</a></li>
+				        <li><a href="javascript:void(0)">Export as PDF</a></li>
+			        </ul>
+                </div>
+                
+                <table class="table table-bordered table-striped" id="smpl_tbl">
+			        <thead>
+				        <tr>
+					        <th class="table_checkbox"><input name="select_rows" class="select_rows" data-tableid="smpl_tbl" type="checkbox"></th>
+					        <th>id</th>
+					        <th>Candidate</th>
+					        <th>Course</th>
+					        <th>Date Enrolled</th>
+					        <th>Status</th>
+				        </tr>
+			        </thead>
+			        <tbody>
+			            {% for enrollment in active_enrollments %}
+				        <tr>
+					        <td><input name="row_sel" class="select_row" type="checkbox"></td>
+					        <td>{{ enrollment.student.id }}</td>
+					        <td>{{ enrollment.student.get_full_name }}</td>
+					        <td><a href="{% url 'course_detail' enrollment.course.slug %}">{{ enrollment.course.name }}</a></td>
+					        <td>{{ enrollment.created }}</td>
+					        <td>In Progress</td>
+				        </tr>
+				        {% endfor %}
+			        </tbody>
+		        </table>
+		    </div>
+        </div>   
+        
+        
+        
+        <!-- Candidates pagination -->
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="dataTables_info" id="dt_gal_info">Showing 1 to 6 of 6 entries</div>
+            </div>
+            <div class="col-sm-7">
+                <div class="dataTables_paginate paging_bootstrap">
+                    <ul class="pagination pagination-sm">
+                        <li class="prev disabled"><a href="#">Previous</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li class="next disabled"><a href="#">Next</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End of pagination -->
+        
+        
+        <!-- Job Postings-->
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <h3 class="heading">My Job Posts</h3>
+                <div class="btn-group sepH_b">
+			        <button data-toggle="dropdown" class="btn dropdown-toggle btn-default btn-sm">Action <span class="caret"></span></button>
+			        <ul class="dropdown-menu">
+				        <li><a href="tables_more.html#" class="delete_rows_simple" data-tableid="smpl_tbl"><i class="icon-trash"></i> Delete</a></li>
+				        <li><a href="javascript:void(0)">Export as CSV</a></li>
+				        <li><a href="javascript:void(0)">Export as PDF</a></li>
+			        </ul>
+                </div>
+                <table class="table table-bordered table-striped" id="smpl_tbl">
+			        <thead>
+				        <tr>
+					        <th class="table_checkbox"><input name="select_rows" class="select_rows" data-tableid="smpl_tbl" type="checkbox"></th>
+					        <th>id</th>
+					        <th>Job</th>
+					        <th>Type</th>
+					        <th>Date Posted</th>
+				        </tr>
+			        </thead>
+			        <tbody>
+			            {% for job in my_jobs %}
+				        <tr>
+					        <td><input name="row_sel" class="select_row" type="checkbox"></td>
+					        <td>{{ job.id }}</td>
+					        <td><a href="#">{{ job.title }}</a></td>
+					        <td>{{ job.type }}</td>
+					        <td>{{ job.date_posted }}</td>
+				        </tr>
+				        {% endfor %}
+			        </tbody>
+		        </table>
+            </div>
+        </div>   
+        
+                     
+    </div>
+</div>
+{% endblock body %}

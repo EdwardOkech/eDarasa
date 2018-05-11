@@ -1,0 +1,26 @@
+{% extends "base_site.html" %}
+{% load staticfiles %}
+
+{% block title %}Email Sent{% endblock %}
+
+{% block body %}
+
+    <section>
+        <div class="container">
+            <div class="row">
+            
+                <h2 class="heading heading--start">Email Sent</h2>
+                
+                <p>A confirmation e-mail with an activation link has been sent to you.</p>
+                
+                <p>Please check your e-mail and follow the link to continue the registration process.</p>
+                
+                <p><a href="{% url 'home:homepage' %}">Return to homepage.</a></p>
+                
+            </div>
+                <!-- end row -->
+        </div>
+        <!-- end container -->
+    </section>
+
+{% endblock body %}

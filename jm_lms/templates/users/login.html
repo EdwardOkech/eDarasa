@@ -1,0 +1,57 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+
+        <section class="container">
+            <h2 class="block-title block-title--top-large block-title--bottom">Login</h2>
+            <div class="login">
+            
+                <form class="contact" id="contact-form" name="contact-form" action="{% url 'login' %}" method="post" validate>
+                    {% csrf_token %}
+                    
+                    {% if form.errors %}				    
+                    <!-- Error messaging -->
+                    <div class="alert alert-warning alert-login">
+                        <div class="errors">		                        
+                                {{ form.non_field_errors }}
+                                <ul id="error" class="error">
+                                    {% for field in form %}
+	                                    {% if field.errors %}<li><strong>ERROR: </strong>{{ field.label }}: {{ field.errors|striptags }}</li>{% endif %}
+                                    {% endfor %}
+                                </ul>		                        
+                        </div>
+                    </div> 
+                    <!-- /Error messaging -->
+                    {% endif %} 	 
+                    
+                    
+                    <input class="contact__field" id="id_login" name="login" type="text" placeholder="E-mail or Username" required>
+                    
+                    <input class="contact__field" id="id_password" name="password" type="password" placeholder="Password" required>
+                    
+                    <div class="checkbox">
+                        <input id="check1" type="checkbox" name="check1" value="check1" />
+                        <label for="check1">Remember me</label>
+                    </div>
+                    <!--<a class="login__callback" href="#">Forgot password?</a>-->
+                    <a href="{% url 'register' %}">Not registered? Sign up here</a>
+                    
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    <button class="btn btn--decorated btn-warning login__btn" type="submit">Login</button>
+                </form>
+                
+            </div>
+            <!--<div class="btn-wrapper">
+                <h3 class="heading-helper heading-helper--bottom">You can also sign in via social accounts:</h3>
+                <a class="btn btn--decorated btn--facebook" href="https://www.facebook.com/#"><i class="fa fa-facebook"></i>Facebook</a>
+                <a class="btn btn--decorated btn--twitter" href="https://twitter.com/#"><i class="fa fa-twitter"></i>Twitter</a>
+            </div>-->
+        </section>
+        <!-- end container -->
+
+{% endblock %}

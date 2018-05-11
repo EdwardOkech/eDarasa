@@ -1,0 +1,71 @@
+{% extends "base_generic.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ course.name }}{% endblock %}
+
+{% block body %}
+<div id="contentwrapper">
+    <div class="main_content">
+        <div id="jCrumbs" class="breadCrumb module">
+            <ul>
+                <li>
+                    <a href="{% url 'dashboard' %}"><i class="glyphicon glyphicon-home"></i></a>
+                </li>
+                <li>
+                    <a href="{% url 'course_list' %}">Courses List</a>
+                </li>
+                <li>
+                    {{ course.name }}
+                </li>
+            </ul>
+        </div>	
+        <div class="row">
+            
+            <div class="col-sm-12 col-md-12">
+                <h3 class="heading">{{ course.name }}</h3>
+                
+                <div class="vcard">
+					<img class="thumbnail" src="{% static 'img/empty_image.png' %}" alt="">
+					<ul>
+						<li class="v-heading">Course info</li>
+						<li>
+							<span class="item-key">Name</span>
+							<div class="vcard-item">{{ course.name }}</div>
+						</li>
+						<li>
+							<span class="item-key">Description</span>
+							<div class="vcard-item">{{ course.description|safe }}</div>
+						</li>
+				    </ul>
+				</div> 
+				
+				<h3 class="heading">Modules in {{ course.name }}</h3>
+                
+                
+                <table class="table table-striped table-bordered table-condensed" data-rowlink="a">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for module in module_list %}
+                    <tr>
+                        <td>{{ module.id }}</td>
+                        <td><a href="{% url 'module_detail' course.slug module.slug %}">{{ module.name }}</a></td>
+                        <td>{{ module.description|truncatewords:20|safe }} [&hellip;]</td>
+                        <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            
+        </div>                
+    </div>
+</div>
+{% endblock body %}

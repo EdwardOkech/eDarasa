@@ -1,0 +1,27 @@
+{% extends "base_site.html" %}
+{% load staticfiles %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+
+    <section>
+        <div class="container">
+            <div class="row">
+            
+                <h2 class="heading heading--start">Welcome</h2>
+                
+                <p><b>Ready to get started?</b> We have online courses with helpful resources that will help you progress in your job search and career. Or, if you want to start an exciting new career, you can use the courses as your springboard.</p>
+                
+                <div class="tac">
+                    <a class="btn btn-primary" href="{% url 'login' %}">Login</a> or 
+                    <a class="btn btn-primary" href="{% url 'register' %}">Register</a>
+                </div>
+                
+            </div>
+                <!-- end row -->
+        </div>
+        <!-- end container -->
+    </section>
+
+{% endblock body %}

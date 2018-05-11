@@ -1,0 +1,48 @@
+{% extends "base_generic.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ lesson.name }}{% endblock %}
+
+{% block body %}
+<div id="contentwrapper">
+    <div class="main_content">
+        <div id="jCrumbs" class="breadCrumb module">
+            <ul>
+                <li>
+                    <a href="{% url 'dashboard' %}"><i class="glyphicon glyphicon-home"></i></a>
+                </li>
+                <li>
+                    <a href="{% url 'course_list' %}">Courses List</a>
+                </li>
+                <li>
+                    <a href="{% url 'course_detail' lesson.course.slug %}">{{ lesson.course }}</a>
+                </li>
+                <li>
+                    <!-- TODO: Add link to module detail in href -->
+                    <a href="">{{ lesson.module }}</a>
+                </li>
+                <li>
+                    {{ lesson.name }}
+                </li>
+            </ul>
+        </div>	
+        <div class="row">
+            
+            <div class="col-sm-12 col-md-12">
+                <h3 class="heading">{{ lesson.name }}</h3>
+                
+                SOME LESSON CONTENT WILL GO HERE.</br>
+                {{ lesson.content }}
+                
+                </br>
+                
+                <a href="" class="btn btn-default">Previous lesson:</a>
+                <a href="" class="btn btn-default">Next lesson:</a>
+                <a href="" class="btn btn-default">Start Quiz</a>
+            </div>
+            
+            
+        </div>                
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,177 @@
+{% extends "base_site.html" %}
+{% load staticfiles %}
+{% load has_group %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+    <!-- Section show current page and breadcrumb -->
+    <section class="page-indecator">
+        <div class="forum-head divider--bottom-lg">
+            <div class="container">
+                <h2 class="heading">Resume Training</h2>
+                <!-- Breadcrumb pattern -->
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'student_dashboard' %}">Home</a></li>
+                    <li class="active">Resume Training</li>
+                </ol>
+                <!-- Default one color divider -->
+                <div class="divider divider--bottom-md"></div>
+                {% if current_module %}
+                <div class="forum">
+                    <h1 class="forum__heading">{{ current_module.name }}</h1>
+                    <h3 class="forum__describe">{{ current_module.course.name }}</h3>
+                <!-- Secondary progress bar with white space -->
+                <div class="progress-container progress--secondary progress-cut" id="progress-start">
+                    <div class="progress-quantity">Progress: <span class="progress-value">{{ current_module.done_percent }}</span>%</div>
+                    <div class="progress" data-level="{{ current_module.done_percent }}">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ current_module.done_percent }}%;">
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-info btn--decorated" href="{% url 'student_lessons' current_module.course.slug current_module.slug %}">Resume training</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <!-- end section show current page and breadcrumb -->
+    
+    
+    <section>
+            <div class="container">
+                <div class="row">
+                <div class="col-sm-12">
+                        <h2 class="heading heading--start">Training Progress</h2>
+                        <div class="tabs tabs--minimal present-addition-lg">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#one" data-toggle="tab">All courses</a></li>
+                                <li><a href="#three" data-toggle="tab">In Progress</a></li>
+                                <li><a href="#three" data-toggle="tab">Completed</a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="one">
+                                
+		            <!-- Target table for all student courses -->
+                    <div class="table-responsive">
+                        <table class="table table--target table--mod table--target table--forum">                            
+                            <thead>
+                                <tr>
+                                    <th class="table-main">Course title</th>
+                                    <th class="table-main">Status</th>
+                                    <th class="table-main">Progress</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in all_courses %}
+                                <tr>
+                                    <td>
+                                        <div class="table__category-photo table__category-photo--markered">
+                                            <img src="{% static 'theme/images/training-icon.jpg' %}" alt="">
+                                        </div>
+                                        {% if course.is_accessible %}
+                                            <a class="table__category" href="{% url 'student_modules' course.slug %}">{{ course.name }}</a> <span>{{ course.description|safe|truncatewords:50 }} [&hellip;]</a>
+                                        {% else %}
+                                            {{ course.name }}
+                                        {% endif %}
+                                        </span></td>
+                                    <td>{{ course.status }}</td>
+                                    <td><div class="progress-container progress--secondary progress-cut" id="progress-start">
+        <div class="progress-quantity">Progress: <span class="progress-value">{{ course.done_percent }}</span>%</div>
+        <div class="progress" data-level="{{ course.done_percent }}">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{ course.done_percent }}%;"></div>
+        </div>
+    </div></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- end responsive table -->
+                                    
+                                </div>
+                                <div class="tab-pane" id="two">
+								                    <!-- Target table for corses in progress -->
+                    <div class="table-responsive">
+                        <table class="table table--target table--mod table--target table--forum">
+                            <colgroup class="col-wide-md">
+                                </colgroup><colgroup class="col-small">
+                                    </colgroup><colgroup class="col-small">
+                                        </colgroup><colgroup class="col-middle">
+                                            </colgroup><thead>
+                                                <tr>
+                                                    <th class="table-main">Course title</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for enrollment in my_enrollments %}
+                                                <tr>
+                                                    <td>
+                                                        <div class="table__category-photo table__category-photo--markered">
+                                                            <img src="{% static 'theme/images/training-icon.jpg' %}" alt="">
+                                                        </div>
+                                                        <a class="table__category" href="{% url 'student_modules' enrollment.course.slug %}">{{ enrollment.course.name }}</a> <span>{{ enrollment.course.description|safe|truncatewords:50 }} [&hellip;]</a></span></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+													<div class="progress-container progress--secondary progress-cut" id="progress-start">
+                        <div class="progress-quantity">Progress: <span class="progress-value">16</span>%</div>
+                        <div class="progress" data-level="16">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 16%;"></div>
+                        </div>
+                    </div>
+													</td>
+                                                </tr>
+                                                {% endfor %}
+                                               
+                                               
+
+                                            </tbody>
+                        </table>
+                    </div>
+                    <!-- end responsive table -->
+                                    
+                                </div>
+                                <div class="tab-pane" id="three">
+				                    <!-- Target table for specific needs -->
+                                    <div class="table-responsive">
+                                        <table class="table table--target table--mod table--target table--forum">
+                                            <colgroup class="col-wide-md">
+                                                </colgroup><colgroup class="col-small">
+                                                    </colgroup><colgroup class="col-small">
+                                                        </colgroup><colgroup class="col-middle">
+                                                            </colgroup><thead>
+                                                                <tr>
+                                                                    <th class="table-main">Course title</th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            
+                                        </table>
+                                    </div>
+                                    <!-- end responsive table -->
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end tabs -->
+                
+                    <!-- end col -->
+
+</div>
+
+                <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </section>
+{% endblock body %}
